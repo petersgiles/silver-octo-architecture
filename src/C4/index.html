@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href=".\css\styles.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="digital-suite-c4-architecture">Digital Suite C4 Architecture</h1>
+<h2 id="software-system">Software System</h2>
+<p>A software system is the highest level of abstraction and describes something that delivers value to its users, whether they are human or not. This includes the software system you are modelling, and the other software systems upon which your software system depends (or vice versa).</p>
+<p><a href="./svg/c4.svg"><img src="./svg/c4.svg" alt="Software System" /></a></p>
+<h2 id="container">Container</h2>
+<p>A container represents something that hosts code or data. A container is something that needs to be running in order for the overall software system to work.</p>
+<p>A container is essentially a context or boundary inside which some code is executed or some data is stored. And each container is a separately deployable thing.</p>
+<p><a href="./svg/c4_001.svg"><img src="./svg/c4_001.svg" alt="Container" /></a></p>
+<h2 id="component">Component</h2>
+<p>The word “component” is a hugely overloaded term in the software development industry, but in this context a component is simply a grouping of related functionality encapsulated behind a well-defined interface. If you’re using a language like Java or C#, the simplest way to think of a component is that it’s a collection of implementation classes behind an interface. Aspects such as how those components are packaged (e.g. one component vs many components per JAR file, DLL, shared library, etc) is a separate and orthogonal concern.</p>
+</body>
+</html>
