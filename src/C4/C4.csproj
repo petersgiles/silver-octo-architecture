@@ -4,18 +4,26 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="architecture\docs\about.md" />
-    <None Remove="architecture\docs\index.md" />
-    <None Remove="architecture\mkdocs.yml" />
+    <None Remove="Content\docs\about.md" />
+    <None Remove="Content\docs\bar.md" />
+    <None Remove="Content\docs\index.md" />
+    <None Remove="Content\docs\thing\foo.md" />
+    <None Remove="Content\mkdocs.yml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="architecture\docs\about.md">
+    <Content Include="Content\docs\about.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="architecture\docs\index.md">
+    <Content Include="Content\docs\bar.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="architecture\mkdocs.yml">
+    <Content Include="Content\docs\index.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\docs\thing\foo.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\mkdocs.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

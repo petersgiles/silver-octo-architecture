@@ -180,7 +180,7 @@ namespace structurizr
 
            // UploadWorkspaceToStructurizr(workspace);
             WriteWorkspace(workspace);
-
+            Console.ReadLine();
         }
 
         private static void WriteWorkspace(Workspace workspace)
@@ -198,7 +198,7 @@ namespace structurizr
                 process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 process.StartInfo.WorkingDirectory = basedir;
                 process.StartInfo.FileName = "plantuml";
-                process.StartInfo.Arguments = "-tsvg *.wsd -o .\\architecture\\docs\\svg";
+                process.StartInfo.Arguments = "-tsvg *.wsd -o .\\Content\\docs\\svg";
                 process.Start();
                 process.WaitForExit();
             }
@@ -206,7 +206,7 @@ namespace structurizr
             using (System.Diagnostics.Process process = new System.Diagnostics.Process())
             {
                 process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                process.StartInfo.WorkingDirectory = Path.Combine(basedir, "architecture");
+                process.StartInfo.WorkingDirectory = Path.Combine(basedir, "Content");
                 process.StartInfo.FileName = "mkdocs";
                 process.StartInfo.Arguments = "build";
                 process.Start();
@@ -218,7 +218,7 @@ namespace structurizr
             using (System.Diagnostics.Process process = new System.Diagnostics.Process())
             {
                 process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                process.StartInfo.WorkingDirectory = Path.Combine(basedir, "architecture");
+                process.StartInfo.WorkingDirectory = Path.Combine(basedir, "Content");
                 process.StartInfo.FileName = "mkdocs";
                 process.StartInfo.Arguments = "serve";
                 process.Start();

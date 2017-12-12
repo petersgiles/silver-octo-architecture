@@ -1,0 +1,6 @@
+﻿site_name: Digital Suite
+pages:
+- Home: 'index.md'
+- About: 'about.md'
+- C4:
+    - 'Architecture Diagrams': 'thing/foo.md'
