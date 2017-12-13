@@ -9,10 +9,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>   
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Content\docs\cheese.md" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Structurizr.Core" Version="0.6.0" />
   </ItemGroup>
