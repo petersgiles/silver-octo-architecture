@@ -1,6 +1,9 @@
 ﻿site_name: Digital Suite
 pages:
 - Home: 'index.md'
-- About: 'about.md'
+- Contact: 'contact.md'
 - C4:
-    - 'Architecture Diagrams': 'thing/foo.md'
+    - 'Enterprise': 'diagrams/enterprise.md'
+    - 'System': 'diagrams/system.md'
+    - 'Reader': 'diagrams/reader.md'
+    - 'Deployment': 'diagrams/deployment.md'

@@ -1,3 +1,0 @@
-﻿# BAR
-
-AFAFAFAAFAFAFAA

@@ -180,7 +180,7 @@ namespace structurizr
 
            // UploadWorkspaceToStructurizr(workspace);
             WriteWorkspace(workspace);
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         private static void WriteWorkspace(Workspace workspace)
