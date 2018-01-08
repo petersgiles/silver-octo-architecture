@@ -1,0 +1,12 @@
+@startuml
+title Hello Gulp!
+actor Alice
+actor Brett
+
+Alice -> Brett: Authentication Request
+Brett --> Alice: Authentication Response
+
+Alice -> Brett: Another authentication Request
+Alice <-- Brett: another authentication Response
+
+@enduml

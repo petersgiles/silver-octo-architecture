@@ -1,0 +1,11 @@
+@startuml
+title Deployment
+actor "VIP"  as P_VIP 
+actor "PMO"  as P_PMO 
+
+[Digital Suite] <<Software System>>  as S_DIGITAL_SUITE 
+
+P_VIP --> A1: Authentication Response
+P_PMO .right..> S_DIGITAL_SUITE
+
+@enduml

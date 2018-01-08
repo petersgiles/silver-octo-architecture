@@ -1,0 +1,10 @@
+@startuml
+title PMO : Actor
+actor "Pack Owner"  as P_PACK_OWNER 
+
+component "Digital Suite"  as S_DIGITAL_SUITE 
+
+   P_PACK_OWNER --> S_DIGITAL_SUITE : Uses
+
+
+@enduml

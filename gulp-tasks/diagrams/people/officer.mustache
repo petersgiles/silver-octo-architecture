@@ -1,0 +1,16 @@
+@startuml
+title {{title}}
+{{#actors}}
+actor "{{name}}" {{#id}} as {{id}} {{/id}}
+{{/actors}}
+
+{{#systems}}
+component "{{name}}" {{#id}} as {{id}} {{/id}}
+{{/systems}}
+
+{{#actorsystems}}
+   {{actor}} -right-> {{system}} : Uses
+{{/actorsystems}}
+
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+title {{title}}
+{{#actors}}
+actor "{{name}}" {{#id}} as {{id}} {{/id}}
+{{/actors}}
+
+{{#systems}}
+component "{{name}}" {{#id}} as {{id}} {{/id}}
+{{/systems}}
+
+
+cloud "Internal Domain" {
+  package "Mobile Iron" {
+    frame "iPad" {
+      [dsuite]
+    }
+  }
+
+  node S_COUCHDB {
+    database "Database" {
+        [store]
+    }
+    folder "Folder" {
+        [File]
+    }
+    }
+}
+
+
+P_VIP --> A1: Authentication Response
+
+@enduml

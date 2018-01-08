@@ -1,9 +1,0 @@
-﻿site_name: Digital Suite
-pages:
-- Home: 'index.md'
-- Contact: 'contact.md'
-- C4:
-    - 'Enterprise': 'diagrams/enterprise.md'
-    - 'System': 'diagrams/system.md'
-    - 'Reader': 'diagrams/reader.md'
-    - 'Deployment': 'diagrams/deployment.md'
