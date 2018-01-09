@@ -1,0 +1,10 @@
+@startuml
+title Officer: Actor
+actor "Departmental Officers"  as P_OFFICER 
+
+component "Digital Suite"  as S_DIGITAL_SUITE 
+
+   P_OFFICER -right-> S_DIGITAL_SUITE : Uses
+
+
+@enduml

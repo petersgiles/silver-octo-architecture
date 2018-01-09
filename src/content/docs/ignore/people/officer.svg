@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="125px" preserveAspectRatio="none" style="width:316px;height:125px;" version="1.1" viewBox="0 0 316 125" width="316px" zoomAndPan="magnify"><defs><filter height="300%" id="fxvwzugfbxamh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="104" x="110" y="18.6855">Officer: Actor</text><!--entity P_OFFICER--><ellipse cx="75" cy="40.6406" fill="#FEFECE" filter="url(#fxvwzugfbxamh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M75,48.6406 L75,75.6406 M62,56.6406 L88,56.6406 M75,75.6406 L62,90.6406 M75,75.6406 L88,90.6406 " fill="#FEFECE" filter="url(#fxvwzugfbxamh)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="138" x="6" y="112.1738">Departmental Officers</text><!--entity S_DIGITAL_SUITE--><rect fill="#FEFECE" filter="url(#fxvwzugfbxamh)" height="37.6094" style="stroke: #A80036; stroke-width: 1.5;" width="95" x="210.5" y="54.1406"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="205.5" y="59.1406"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="205.5" y="81.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="220.5" y="78.6738">Digital Suite</text><!--link P_OFFICER to S_DIGITAL_SUITE--><path d="M144.184,73.1406 C164.353,73.1406 186.063,73.1406 205.058,73.1406 " fill="none" id="P_OFFICER-S_DIGITAL_SUITE" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="210.341,73.1406,201.341,69.1406,205.341,73.1406,201.341,77.1406,210.341,73.1406" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="30" x="162.25" y="66.6357">Uses</text><!--
+@startuml
+title Officer: Actor
+actor "Departmental Officers"  as P_OFFICER 
+
+component "Digital Suite"  as S_DIGITAL_SUITE 
+
+   P_OFFICER -right-> S_DIGITAL_SUITE : Uses
+
+
+@enduml
+
+PlantUML version 1.2017.19(Sun Nov 12 22:46:22 AEDT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_151-b12
+Operating System: Windows Server 2012 R2
+OS Version: 6.3
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

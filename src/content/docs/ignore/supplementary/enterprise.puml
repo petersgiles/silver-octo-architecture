@@ -1,0 +1,27 @@
+@startuml
+title Enterprise
+actor "VIP"  as P_VIP 
+
+
+
+cloud "Internal Domain" {
+  package "Mobile Iron" {
+    frame "iPad" {
+      [dsuite]
+    }
+  }
+
+  node S_COUCHDB {
+    database "Database" {
+        [store]
+    }
+    folder "Folder" {
+        [File]
+    }
+    }
+}
+
+
+P_VIP --> A1: Authentication Response
+
+@enduml

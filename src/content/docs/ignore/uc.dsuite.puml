@@ -1,0 +1,18 @@
+@startuml
+title Use Case: DSuite
+actor "VIP" <<Person>>  as P_VIP 
+actor "Departmental Officers" <<Person>>  as P_OFFICER 
+
+[Digital Suite] <<Software System>>  as S_DIGITAL_SUITE 
+
+package "Mobile Iron" {
+  frame "iPad" {
+    [Offline App] <<Container>>  as C_APP_MOB 
+    [Browser App] <<Container>>  as C_APP_BROWSER 
+  }
+}
+
+P_VIP ..> C_APP_MOB : Uses
+P_MEMBER ..> C_APP_BROWSER : Uses
+
+@enduml

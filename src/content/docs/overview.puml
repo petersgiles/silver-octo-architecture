@@ -1,0 +1,25 @@
+
+@startuml
+
+actor :User:
+
+node "Solution" as SOL{
+
+    component "DSuite" <<system>> as DS
+    component "SharePoint" <<platform>> as SP
+    component "Couch DB" <<platform>> as CDB
+    component "Mobile Iron" <<platform>> as MI
+    database "SQL" <<platform>> as SQL
+
+    :User: -> DS : Uses
+    DS --down--> SP : Uses
+    DS --down--> CDB : Uses
+    DS --down--> MI : Uses
+    DS --down--> SQL : Uses
+    SP --down--> SQL : Uses
+}
+
+component "Active Directory" <<system>> as AD
+AD --up--> SOL: Secured by
+
+@enduml

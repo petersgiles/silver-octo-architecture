@@ -1,0 +1,44 @@
+@startuml
+title Use Case: DSuite
+actor "VIP" <<Person>>  as P_VIP 
+actor "PMO" <<Person>>  as P_PMO 
+actor "Departmental Officers" <<Person>>  as P_OFFICER 
+actor "Pack Owner" <<Person>>  as P_PACK_OWNER 
+actor "Admin" <<Person>>  as P_ADMIN 
+actor "External" <<Person>>  as P_EXTERNAL 
+
+package "DSuite" {
+  (Notified) as 2
+  (Decide) as 3
+  (Chat) as 4
+  (CRUA Brief) as 5
+  (Workflow) as 6
+  (Submit Cross Domain Pack) as 7
+  (CRUA Pack) as 8
+  (CRUA Navigation) as 9
+  (CRUA Group) as 10
+}
+
+P_VIP .> 2 : Uses
+P_VIP .> 3 : Uses
+P_VIP .> 4 : Uses
+
+P_PMO .> 2 : Uses
+P_PMO .> 4 : Uses
+P_PMO .> 5 : Uses
+
+P_PACK_OWNER .> 4 : Uses
+P_PACK_OWNER .> 5 : Uses
+P_PACK_OWNER .> 8 : Uses
+P_PACK_OWNER .> 9 : Uses
+
+P_OFFICER .> 2 : Uses
+P_OFFICER .> 4 : Uses
+P_OFFICER .> 6 : Uses
+
+P_ADMIN .> 10 : Uses
+
+P_EXTERNAL .> 7 : Uses
+
+
+@enduml
