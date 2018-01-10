@@ -1,0 +1,76 @@
+@startuml
+!include ../theme.iuml
+
+hide methods
+hide stereotypes
+
+title Virtual Table
+
+' entities
+
+Table(thing, "thing") {
+    primary_key(id) INTEGER
+    not_null(type_of_thing) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(details) VARCHAR[64]
+}
+
+Table(type_of_thing, "type_of_thing") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+
+Table(attribute, "attribute") {
+    primary_key(id) INTEGER
+    not_null(thing) INTEGER
+    not_null(type_of_attribute) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(details) VARCHAR[64]
+}
+
+Table(type_of_attribute, "type_of_attribute") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+Table(data_value, "data_values") {
+    primary_key(id) INTEGER
+    not_null(attribute) INTEGER
+    not_null(value) VARCHAR[MAX]
+}
+
+Table(type_of_data_value, "type_of_data_value") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+
+Table(relationship, "relationship") {
+    primary_key(id) INTEGER
+    not_null(relationship_to_thing_1) INTEGER
+    not_null(relationship_to_thing_2) INTEGER
+    not_null(type_of_relationship) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+
+Table(type_of_relationship, "type_of_relationship") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+' relationships
+
+thing "1".."*" type_of_thing : "Is a"
+attribute "1".."*" type_of_attribute :  "Is a"
+attribute "1".."*" data_value :  "Has a"
+
+thing "1".."*" attribute : "Has many"
+relationship "1".."*" type_of_relationship :  "Is a"
+data_value "1".."*" type_of_data_value :  "Is a"
+
+relationship "1" .. "*" thing :  "Relationship 1"
+relationship "1" .. "*" thing :  "Relationship 2"
+
+@enduml
