@@ -1,4 +1,5 @@
 @startuml
+!include theme.iuml
 left to right direction
 
 actor :VIP: <<person>> as A_VIP
@@ -33,11 +34,6 @@ rectangle "Brief and Pack CRUA" as RECT_BRIEF {
     A_OWNER -- (Create pack)
     (Archive pack) .left.> (Archive brief)
     A_OWNER -- (Archive pack)
-}
-
-skinparam actor {
-    backgroundColor<<person>> LightSalmon
-    borderColor<<person>> Black
 }
 
 @enduml

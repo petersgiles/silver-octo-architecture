@@ -1,0 +1,66 @@
+@startuml
+!include ../theme.iuml
+
+hide methods
+hide stereotypes
+
+
+' entities
+
+Table(user, "user\n(a system user, a real person)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(fname) VARCHAR[64]
+    not_null(lname) VARCHAR[64]
+    not_null(email) VARCHAR[64]
+}
+
+Table(profile, "profile\n(a place for user junk)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+Table(apps, "apps\n(a list of apps)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+Table(id_source, "identity source") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64] 
+}
+
+Table(role, "role\n(aa assignment of operations and features)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+Table(feature, "feature\n(a group of operations)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+Table(operation, "operation\n(an act that can be performed by a user)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+' relationships
+
+
+user "1" .. "0..*" profile : "A User's Profile"
+profile "1" .. "0..*" apps : "Apps a user has access to"
+
+
+user "1" .. "1..*" id_source : "Identity Sources\n(i.e. Vangard, ADFS, Active Directory"
+
+user "1" .. "0..*" role : "A user identity may be assigned roles"
+user "1" .. "0..*" feature : "A user identity may be assigned features"
+user "1" .. "0..*" operation : "A user identity may be assigned operations"
+
+role "1" .. "0..*" feature : "A role may be assigned features"
+role "1" .. "0..*" operation : "A role may be assigned operations"
+
+feature "1" .. "0..*" operation : "A feature may be assigned operations"
+
+@enduml

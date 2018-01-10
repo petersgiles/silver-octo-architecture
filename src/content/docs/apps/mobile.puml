@@ -1,0 +1,6 @@
+
+@startuml
+!include ../theme.iuml
+title Mobile
+
+@enduml

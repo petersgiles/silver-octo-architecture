@@ -1,0 +1,50 @@
+@startsalt
+{+
+. | . | <&menu>
+{T
+ + Hot Topics <<folder>>
+ ++ Topic 1 <<folder>>
+ +++ Topic Brief <<folder>>
+ ++++ Brief <<artefact>>
+ ++++ Discuss <<artefact>>
+ ++++ Recommentation <<artefact>>
+ ++++ Decision <<artefact>>
+ ++++ Attachments <<folder>>
+ +++++ Attachment 1 <<artefact>>
+ +++++ Attachment 2 <<artefact>>
+++ Topic 2 <<folder>>
+ +++ Topic Brief <<folder>>
+ ++++ Brief <<artefact>>
+ ++++ Discuss <<artefact>>
+ ++++ Recommentation <<artefact>>
+ ++++ Decision <<artefact>>
+ ++++ Attachment <<artefact>>
+}{
+  Recommendaton
+  --
+  Diam et egestas luctus, ante enim sodales ligula, eget pellentesque nisl lectus
+  ..
+  Discussion
+  --
+  Lorem ipsum dolor sit amet, 
+  ..
+  consectetur adipiscing elit. 
+  Sed pharetra iaculis enim at consectetur. 
+  ..
+  Proin at congue leo, non vehicula dui. 
+  ..
+  Brief
+  --
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra iaculis enim at consectetur.
+  ..
+}{
+Related Items
+--
+
+(Item 1)
+(Item 2)
+(Item 3)
+
+}
+}
+@endsalt

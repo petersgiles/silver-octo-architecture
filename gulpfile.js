@@ -18,4 +18,6 @@ gulp.task('diagram', getTask('diagrams'));
 
 gulp.task('build', getTask('build'));
 
-gulp.task('default', ['diagrams', 'build']);
+gulp.task('serve', getTask('serve'));
+
+gulp.task('default', ['build', 'serve']);

@@ -1,0 +1,33 @@
+@startuml
+!include ../../theme.iuml
+title Use Case: PMO
+
+actor :User: <<person>>
+
+node "iPad" as OFFLINE_APP {    
+
+    folder "dashboard" <<page>> {
+        :User: -down- (review\nalerts)     
+        :User: -down- (search\ncontent) 
+        :User: -down- (open\npack)
+    }
+
+    folder "pack" <<page>> {
+        :User: -down- (navigate\npack)
+        :User: -down- (read\nbrief)
+
+        usecase RA as "if policy brief.
+        --
+        make
+        decision"
+
+        :User: -down- RA
+        :User: -down- (make\ncomment)
+        :User: -down- (read\attachments)
+    }    
+}
+
+component "Mobile Iron" <<system>> as MI
+OFFLINE_APP -left-> MI : Secured by
+
+@enduml
