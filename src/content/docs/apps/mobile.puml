@@ -1,6 +1,55 @@
 
 @startuml
-!include ../theme.iuml
+
+
 title Mobile
+
+
+database CouchDB <<system>> as C 
+
+queue "Event Bus" <<service>> as ESB
+
+
+actor :Reader: <<person>> as R
+actor :Owner: <<person>> as O
+component [Mobile Iron] <<system>> as MI
+
+node iPad <<device>> {
+
+
+    package "DSuite" {
+        component "Offline App" <<app>> as DS
+        database PouchDB <<storage>> as P
+    }
+    
+    
+    MI --> DS : Secures
+    DS <--> P : Uses 
+    P <-right-> C : Replicates
+    R -- DS: Reads
+}
+
+node SharePoint {
+    component [Site] <<system>> as SP
+}
+
+package "Admin Web" {
+
+    component [Admin] <<website>> as AW 
+    database "SQL Server" <<database>> as SQL
+
+    AW <--> SP
+    AW <--> SQL
+    AW <--> ESB
+    
+    O -- AW : Manages
+}
+
+ESB <--> SP
+ESB <--> SQL
+C <--> ESB
+
+
+
 
 @enduml

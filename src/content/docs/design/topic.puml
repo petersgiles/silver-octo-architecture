@@ -1,0 +1,82 @@
+@startuml
+!include ../theme.iuml
+
+hide methods
+hide stereotypes
+
+title ERD : Topic
+
+' entities
+
+Table(user, "user") {
+    primary_key(id) INTEGER
+}
+
+Table(topic, "topic") {
+    primary_key(id) INTEGER
+    not_null(type_of_topic) INTEGER
+}
+
+Table(type_of_topic, "type_of_topic") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(details) VARCHAR[MAX]
+    
+}
+
+Table(attribute, "attribute") {
+    unique(topic) INTEGER
+    unique(type_of_attribute) INTEGER
+    Value NVARCHAR[666]
+    Text NVARCHAR[MAX]
+    not_null(active) INTEGER
+    not_null(lastupdated) UTCDATETIME    
+}
+
+Table(type_of_attribute, "type_of_attribute") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(details) VARCHAR[MAX]
+    displayhint INTEGER
+}
+
+Table(display_hint, "display_hint") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(format) VARCHAR[MAX]
+}
+
+
+Table(relationship, "relationship") {
+    primary_key(id) INTEGER
+    not_null(relationship_to_topic_1) INTEGER
+    not_null(relationship_to_topic_2) INTEGER
+    not_null(type_of_relationship) INTEGER
+    not_null(caption) VARCHAR[64]
+}
+
+
+Table(type_of_relationship, "type_of_relationship") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[64]
+    not_null(details) VARCHAR[MAX]
+}
+
+' relationships
+
+topic "*".."1" type_of_topic : "Is a"
+attribute "*".."1" type_of_attribute :  "Is a"
+type_of_attribute "0".."*" display_hint : "Has"
+
+topic "1".."*" attribute : "Has many"
+relationship "*".."1" type_of_relationship :  "Is a"
+
+relationship "1" .. "*" topic :  "Relationship 1"
+relationship "1" .. "*" topic :  "Relationship 2"
+
+user "0".."*" type_of_topic : "Owns"
+user "0".."*" type_of_relationship : "Owns"
+user "0".."*" type_of_attribute : "Owns"
+user "0".."*" display_hint : "Owns"
+
+@enduml

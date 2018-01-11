@@ -2,4 +2,10 @@
 
 This app is Offline Capable
 
-[![mobile](mobile.svg)](mobile.svg)
+## Use Case
+
+![diagram](mobile.svg)
+
+[PNG](mobile.png) | [SVG](mobile.svg)
+
+---

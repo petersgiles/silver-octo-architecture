@@ -8,10 +8,13 @@ It is designed to deliver enhanced communication and discovery of important info
 
 DSuite uses platforms we already have
 
-[![overview](overview.svg)](overview.svg)
+![diagram](overview.svg)
+
+[PNG](overview.png) | [SVG](overview.svg)
 
 
 ---
 
+![diagram](use_case.svg)
 
-[![use case](index.svg)](index.svg)
+[PNG](use_case.png) | [SVG](use_case.svg)

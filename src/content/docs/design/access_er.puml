@@ -4,59 +4,49 @@
 hide methods
 hide stereotypes
 
+title Roles & Access
 
 ' entities
 
-Table(user, "user\n(a system user, a real person)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
-    not_null(fname) VARCHAR[64]
-    not_null(lname) VARCHAR[64]
-    not_null(email) VARCHAR[64]
+Table(identity, "identity\n(a real person)") {
 }
 
-Table(profile, "profile\n(a place for user junk)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
+Table(profile, "profile\n(app related identity)") {
 }
 
-Table(apps, "apps\n(a list of apps)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
+Table(personalisation, "personalisation\n(KVP to support\napp customisation)") {
 }
 
-Table(id_source, "identity source") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64] 
+Table(app, "app\n(available applications)") {
 }
 
-Table(role, "role\n(aa assignment of operations and features)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
+Table(id_source, "identity source\n(where is\nthis identity\nfrom)") {
 }
 
-Table(feature, "feature\n(a group of operations)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
+Table(role, "role\n(operations and features)") {
 }
 
-Table(operation, "operation\n(an act that can be performed by a user)") {
-    primary_key(id) INTEGER
-    not_null(caption) VARCHAR[64]
+Table(feature, "feature\n(group of operations)") {
+}
+
+Table(operation, "operation\n(an atomic act)") {
 }
 
 ' relationships
 
 
-user "1" .. "0..*" profile : "A User's Profile"
-profile "1" .. "0..*" apps : "Apps a user has access to"
+identity "1" .. "0..*" app : "Apps a identity has access to"
+identity "1" .. "1..*" id_source : "Identity Sources\n(i.e. Vangard, ADFS, Active Directory"
 
+app  "1" .. "1" profile : "Apps a identity has access to"
 
-user "1" .. "1..*" id_source : "Identity Sources\n(i.e. Vangard, ADFS, Active Directory"
+profile "1" .. "0..*" role : "A identity identity may be assigned roles"
+profile "1" .. "0..*" feature : "A identity identity may be assigned features"
+profile "1" .. "0..*" operation : "A identity identity may be assigned operations"
 
-user "1" .. "0..*" role : "A user identity may be assigned roles"
-user "1" .. "0..*" feature : "A user identity may be assigned features"
-user "1" .. "0..*" operation : "A user identity may be assigned operations"
+personalisation "1" .. "0..1" profile
+personalisation "1" .. "0..1" app 
+
 
 role "1" .. "0..*" feature : "A role may be assigned features"
 role "1" .. "0..*" operation : "A role may be assigned operations"

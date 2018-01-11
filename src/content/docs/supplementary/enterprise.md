@@ -1,3 +1,9 @@
 # enterprise
 
-[![enterprise](enterprise.svg)](enterprise.svg)
+
+## Diagram
+
+![diagram](enterprise.svg)
+
+[PNG](enterprise.png) | [SVG](enterprise.svg)
+

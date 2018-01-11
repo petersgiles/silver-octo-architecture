@@ -7,5 +7,10 @@ Examples:
 - The Prime Minister
 - Department Secretary
 
+## Use Case
 
-[![mobile](vip.svg)](vip.svg)
+![diagram](vip.svg)
+
+[PNG](vip.png) | [SVG](vip.svg)
+
+---

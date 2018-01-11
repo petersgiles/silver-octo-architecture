@@ -1,3 +1,8 @@
 # deployment
 
-[![deployment](deployment.svg)](deployment.svg)
+## Diagram
+
+![diagram](deployment.svg)
+
+[PNG](deployment.png) | [SVG](deployment.svg)
+

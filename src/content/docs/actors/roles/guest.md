@@ -1,3 +1,9 @@
 # Guest
 
-[![activity](guest.svg)](guest.svg)
+## Use Case
+
+![diagram](guest.svg)
+
+[PNG](guest.png) | [SVG](guest.svg)
+
+---

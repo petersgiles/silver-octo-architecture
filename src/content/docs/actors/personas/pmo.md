@@ -3,6 +3,10 @@
 
 An Information Worker in the Prime Minister's Office or VIP Support Staff
 
+## Use Case
 
-[![mobile](pmo.svg)](pmo.svg)
+![diagram](pmo.svg)
 
+[PNG](pmo.png) | [SVG](pmo.svg)
+
+---
