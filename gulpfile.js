@@ -5,19 +5,12 @@ var global = {};
 
 global.SOURCES_BASE_PATH = __dirname + '/src';
 
-
 function getTask(task) {
     return require('./gulp-tasks/' + task)(gulp, plugins, global);
 }
-
-gulp.task('install', getTask('install'));
-
-gulp.task('install-win', getTask('install-win'));
-
-gulp.task('diagram', getTask('diagrams'));
 
 gulp.task('build', getTask('build'));
 
 gulp.task('serve', getTask('serve'));
 
-gulp.task('default', ['build', 'serve']);
+gulp.task('default', ['build']);

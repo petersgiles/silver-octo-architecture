@@ -1,6 +1,5 @@
-
 @startuml
-
+!include ../theme.iuml
 
 title Mobile
 
@@ -26,7 +25,7 @@ node iPad <<device>> {
     MI --> DS : Secures
     DS <--> P : Uses 
     P <-right-> C : Replicates
-    R -- DS: Reads
+    R -- DS: Edits
 }
 
 node SharePoint {

@@ -2,11 +2,10 @@
 
 This app has a small amount of offline capability depending on the browser
 
-
 ## Use Case
 
-![diagram](mobile.svg)
+![diagram](browser.svg)
 
-[PNG](mobile.png) | [SVG](mobile.svg)
+[PNG](browser.png) | [SVG](browser.svg)
 
 ---

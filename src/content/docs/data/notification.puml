@@ -1,0 +1,23 @@
+@startuml
+!include ../theme.iuml
+
+hide methods
+hide stereotypes
+
+title Notification
+
+' entities
+
+
+Table(notification, "notification\n(notification)") {
+}
+
+Table(user, "user\n(user)") {
+}
+
+
+' relationships
+
+user "1" .. "*" notification
+
+@enduml
