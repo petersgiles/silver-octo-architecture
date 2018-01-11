@@ -4,20 +4,39 @@
 hide methods
 hide stereotypes
 
-title Notification
+title Notification Subscription Management
 
 ' entities
 
 
-Table(notification, "notification\n(notification)") {
+Table(subscription, "Subscription") {
 }
 
-Table(user, "user\n(user)") {
+Table(subscription_map, "Subscription Topic") {
+}
+
+Table(subscription_type, "Subscription Type") {
+}
+
+Table(subscription_event_type, "Event Type") {
+}
+
+Table(message_templates, "Message Template") {
+}
+
+
+
+Table(user, "Subscriber") {
 }
 
 
 ' relationships
 
-user "1" .. "*" notification
+user "*" .. "*" subscription : Can have many
+subscription "1" .. "*" subscription_type
+subscription "1" .. "1" subscription_map
+subscription_type "1" .. "*" subscription_event_type
+subscription_type "1" .. "1" message_templates
+
 
 @enduml
