@@ -1,5 +1,5 @@
 @startuml
-!include theme.iuml
+!include ./includes/theme.iuml
 left to right direction
 
 actor :VIP: <<person>> as A_VIP
