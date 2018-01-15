@@ -1,6 +1,6 @@
 # Web Browser Reader
 
-This app has a small amount of offline capability depending on the browser
+This app has a small amount of off-line capability depending on the browser
 
 ## Use Case
 
