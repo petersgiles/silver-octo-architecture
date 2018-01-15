@@ -8,6 +8,7 @@ yarn-error.log*
 src/content/docs/**/*.svg
 src/content/docs/**/*.png
 src/content/site
+site
 
 # Runtime data
 pids
