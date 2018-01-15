@@ -1,25 +1,40 @@
 
 @startuml
+
 !include includes/theme.iuml
-actor :User:
+!include includes/common.iuml!note_ad
+!include includes/common.iuml!pla_sql
+!include includes/common.iuml!pla_sp
+!include includes/common.iuml!pla_couch
+!include includes/common.iuml!svc_mi
+!include includes/common.iuml!svc_esb
+!include includes/common.iuml!sys_dsuite
+!include includes/common.iuml!app_ms_office
+!include includes/common.iuml!act_user
 
-node "Solution" as SOL{
 
-    component "DSuite" <<system>> as DS
-    component "SharePoint" <<platform>> as SP
-    component "Couch DB" <<platform>> as CDB
-    component "Mobile Iron" <<platform>> as MI
-    database "SQL" <<platform>> as SQL
+ACT_USER .. SYS_DSUITE
+ACT_USER .. APP_MS_OFFICE 
+APP_MS_OFFICE -- PLA_SP
 
-    :User: -> DS : Uses
-    DS --down--> SP : Uses
-    DS --down--> CDB : Uses
-    DS --down--> MI : Uses
-    DS --down--> SQL : Uses
-    SP --down--> SQL : Uses
-}
+SYS_DSUITE --down-- PLA_SP 
+SYS_DSUITE --down-- PLA_SQL
+SYS_DSUITE --down-- SVC_ESB
 
-component "Active Directory" <<system>> as AD
-AD --up--> SOL: Secured by
+FRM_OFFLINE --down-- PLA_COUCH 
+FRM_OFFLINE --down-- SVC_MI 
+
+PLA_COUCH .. SVC_ESB
+PLA_SP .. SVC_ESB
+PLA_SP .. PLA_SQL 
+
+
+SVC_ESB ..> NOTE_DS 
+SVC_MI ..> NOTE_DS 
+PLA_SP ..> NOTE_DS 
+PLA_SQL ..> NOTE_DS 
+SYS_DSUITE ..> NOTE_DS 
+
+
 
 @enduml

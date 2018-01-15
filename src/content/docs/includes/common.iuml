@@ -1,0 +1,66 @@
+' section with id user to define user actor
+
+
+/'
+' CUT AND PASTE INTO YOUR PUML
+!include includes/common.iuml!pla_sql
+!include includes/common.iuml!pla_sp
+!include includes/common.iuml!pla_couch
+
+!include includes/common.iuml!svc_ad
+!include includes/common.iuml!svc_mi
+
+!include includes/common.iuml!sys_dsuite
+
+!include includes/common.iuml!act_user
+'/
+@startuml(id=pla_couch)    
+    node "Couch DB" <<platform>> as PLA_COUCH 
+@enduml
+
+@startuml(id=pla_sp)    
+    node "SharePoint" <<platform>> as PLA_SP
+@enduml
+
+@startuml(id=pla_sql)
+    node "MS SQL Server" <<platform>> as PLA_SQL 
+@enduml
+
+@startuml(id=note_ad)
+    note "Secured with\nDirectory Services" as NOTE_DS
+@enduml
+
+@startuml(id=svc_mi)    
+    component "Mobile Iron" <<service>> as SVC_MI
+@enduml
+
+@startuml(id=svc_esb)    
+    queue "Service Bus" <<service>> as SVC_ESB
+@enduml
+
+@startuml(id=sys_dsuite)
+    folder "DSuite" as SYS_DSUITE {
+        frame "offline" as FRM_OFFLINE {
+            component "Reader" <<ios-app>> as APP_MOB_READER
+        }
+
+        frame "online" {
+            component "Reader" <<web-app>> as APP_READER
+            component "Admin" <<web-app>> as APP_ADMIN
+            component "Web API" <<web-app>> as APP_WEB_API
+        }
+    }
+@enduml
+
+@startuml(id=app_ms_office)
+    folder "Desktop Applications" as APP_MS_OFFICE {
+        component "MS Word" <<app>> as APP_MS_WORD 
+        component "MS Excel" <<app>> as APP_MS_EXCEL
+        component "MS PowerPoint" <<app>> as APP_MS_POWERPOINT
+        component "PDF" <<app>> as APP_PDF
+    }
+@enduml
+
+@startuml(id=act_user)
+    actor "Application User" <<person>> as ACT_USER
+@enduml

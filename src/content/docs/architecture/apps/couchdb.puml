@@ -1,5 +1,5 @@
 @startuml
-!include ../includes/theme.iuml
+!include ../../includes/theme.iuml
 
 title CouchDB
 

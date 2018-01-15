@@ -1,5 +1,15 @@
 skinparam handwritten false
 skinparam actor {
-    backgroundColor<<person>> LightSalmon
-    borderColor<<person>> Black
+    backgroundColor<<person>> Tan
+    borderColor<<person>> DimGray
+}
+
+skinparam node {
+    backgroundColor<<platform>> LightSalmon
+    borderColor<<platform>> Black
+}
+
+skinparam component {
+    backgroundColor<<app>> CornFlowerBlue
+    borderColor<<app>> Indigo
 }

@@ -1,6 +1,6 @@
 @startuml
-!include ../includes/theme.iuml
-!include ../includes/erd.iuml
+!include ../../includes/theme.iuml
+!include ../../includes/erd.iuml
 
 hide methods
 hide stereotypes
@@ -35,6 +35,7 @@ Table(operation, "operation\n(an atomic act)") {
 
 
 Table(artifact, "artifact\n(a thing)") {
+
 }
 
 ' relationships
@@ -59,7 +60,7 @@ personalisation "1" .. "0..1" profile
 personalisation "1" .. "0..1" app 
 
 
-role "1" .. "0..*" feature 
+role "1" <-- "0..*" feature 
 role "1" .. "0..*" operation 
 
 feature "1" .. "0..*" operation 
