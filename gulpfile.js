@@ -28,4 +28,6 @@ gulp.task('puml', function(){
 
 gulp.task('serve', getTask('serve'));
 
+gulp.task('build', getTask('build'));
+
 gulp.task('default', ['watch', 'puml', 'serve']);
