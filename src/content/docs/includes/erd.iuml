@@ -1,10 +1,3 @@
-skinparam handwritten false
-skinparam actor {
-    backgroundColor<<person>> LightSalmon
-    borderColor<<person>> Black
-}
-
-
 ' uncomment the line below if you're using computer with a retina display
 ' skinparam dpi 300
 !define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>

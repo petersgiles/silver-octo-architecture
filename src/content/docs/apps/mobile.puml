@@ -1,5 +1,5 @@
 @startuml
-!include ../theme.iuml
+!include ../includes/theme.iuml
 
 title Mobile
 
@@ -37,15 +37,15 @@ package "Admin Web" {
     component [Admin] <<website>> as AW 
     database "SQL Server" <<database>> as SQL
 
-    AW <--> SP
-    AW <--> SQL
-    AW <--> ESB
+    AW <--> SP : RW
+    AW <-- SQL : R
+    AW <--> ESB 
     
     O -- AW : Manages
 }
 
-ESB <--> SP
-ESB <--> SQL
+ESB <--> SP: RW
+ESB <--> SQL : RW
 C <--> ESB
 
 

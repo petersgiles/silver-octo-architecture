@@ -1,0 +1,5 @@
+skinparam handwritten false
+skinparam actor {
+    backgroundColor<<person>> LightSalmon
+    borderColor<<person>> Black
+}

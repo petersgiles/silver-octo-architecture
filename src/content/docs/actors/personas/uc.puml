@@ -1,4 +1,6 @@
 @startuml
+!include ../../includes/theme.iuml
+
 title Use Case: DSuite
 actor "VIP" <<Person>>  as P_VIP 
 actor "PMO" <<Person>>  as P_PMO 

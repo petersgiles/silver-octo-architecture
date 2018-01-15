@@ -1,5 +1,6 @@
 @startuml
-!include ../theme.iuml
+!include ../includes/theme.iuml
+!include ../includes/erd.iuml
 
 hide methods
 hide stereotypes
@@ -32,25 +33,35 @@ Table(feature, "feature\n(group of operations)") {
 Table(operation, "operation\n(an atomic act)") {
 }
 
+
+Table(artifact, "artifact\n(a thing)") {
+}
+
 ' relationships
 
 
-identity "1" .. "0..*" app : "Apps a identity has access to"
-identity "1" .. "1..*" id_source : "Identity Sources\n(i.e. Vangard, ADFS, Active Directory"
+identity "1" .. "0..*" profile 
+identity "1" .. "1..*" id_source 
 
-app  "1" .. "1" profile : "Apps a identity has access to"
+app "1" .. "0..*" role 
+app "1" .. "0..*" feature 
+app "1" .. "0..*" operation 
+app "1" .. "0..*" artifact
 
-profile "1" .. "0..*" role : "A identity identity may be assigned roles"
-profile "1" .. "0..*" feature : "A identity identity may be assigned features"
-profile "1" .. "0..*" operation : "A identity identity may be assigned operations"
+profile  "1" .. "1" app 
+
+profile "1" .. "0..*" role 
+profile "1" .. "0..*" feature 
+profile "1" .. "0..*" operation 
+profile "1" .. "0..*" artifact
 
 personalisation "1" .. "0..1" profile
 personalisation "1" .. "0..1" app 
 
 
-role "1" .. "0..*" feature : "A role may be assigned features"
-role "1" .. "0..*" operation : "A role may be assigned operations"
+role "1" .. "0..*" feature 
+role "1" .. "0..*" operation 
 
-feature "1" .. "0..*" operation : "A feature may be assigned operations"
+feature "1" .. "0..*" operation 
 
 @enduml
