@@ -14,8 +14,26 @@
 
 !include includes/common.iuml!act_user
 '/
+
+''' ACTORS
+
+@startuml(id=act_user)
+    actor "Application User" <<person>> as ACT_USER
+@enduml
+
+
+''' PLATFORMS
+
+@startuml(id=sys_dsuite)
+    node "DSuite" <<system>> as SYS_DSUITE 
+@enduml
+
 @startuml(id=pla_couch)    
     node "Couch DB" <<platform>> as PLA_COUCH 
+@enduml
+
+@startuml(id=pla_web)    
+    node "Web Servers" <<platform>> as PLA_WEB
 @enduml
 
 @startuml(id=pla_sp)    
@@ -26,26 +44,30 @@
     node "MS SQL Server" <<platform>> as PLA_SQL 
 @enduml
 
-@startuml(id=note_ad)
-    note "Secured with\nDirectory Services" as NOTE_DS
-@enduml
+''' SERVICES
 
 @startuml(id=svc_mi)    
     component "Mobile Iron" <<service>> as SVC_MI
 @enduml
 
 @startuml(id=svc_esb)    
-    queue "Service Bus" <<service>> as SVC_ESB
+    queue "Enterprise Service Bus" <<service>> as SVC_ESB
 @enduml
 
-@startuml(id=sys_dsuite)
-    component "DSuite" <<system>> as SYS_DSUITE 
-@enduml
+
+''' APPLICATIONS
 
 @startuml(id=app_ms_office)
-    component "Office & Desktop Applications" <<app>> as APP_MS_OFFICE 
+    component "Office" <<app>> as APP_MS_OFFICE 
 @enduml
 
-@startuml(id=act_user)
-    actor "Application User" <<person>> as ACT_USER
+@startuml(id=app_browser)
+    component "Web Browser" <<app>> as APP_BROWSER 
 @enduml
+
+@startuml(id=app_email)
+    component "Email" <<app>> as APP_EMAIL 
+@enduml
+
+''' NOTES
+

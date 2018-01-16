@@ -14,11 +14,11 @@ function getTask(task) {
 }
 
 gulp.task('watch', function(){
-    gulp.watch('**/*.*uml', ['puml']);
+    gulp.watch('src/content/docs/**/*.*uml', ['puml']);
 });
 
 gulp.task('puml', function(){
-    gulp.src(['**/*.puml'])
+    gulp.src(['src/content/docs/**/*.puml'])
         .pipe(cache('puml'))
         .pipe(shell([
             'echo <%= file.path %>',
@@ -29,6 +29,6 @@ gulp.task('puml', function(){
 
 gulp.task('serve', getTask('serve'));
 
-gulp.task('build', getTask('build'));
+gulp.task('build', ['puml']);
 
-gulp.task('default', ['watch', 'puml', 'serve']);
+gulp.task('default', ['watch', 'serve']);

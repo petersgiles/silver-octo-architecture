@@ -1,6 +1,6 @@
 @startuml
-!include ../includes/theme.iuml
-!include ../includes/erd.iuml
+!include ../../includes/theme.iuml
+!include ../../includes/erd.iuml
 
 hide methods
 hide stereotypes
