@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="570px" preserveAspectRatio="none" style="width:208px;height:570px;" version="1.1" viewBox="0 0 208 570" width="208px" zoomAndPan="magnify"><defs><filter height="300%" id="f1lnoyxpiaul1o" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class Name--><rect fill="#F8F8F8" filter="url(#f1lnoyxpiaul1o)" height="206.6875" id="Name" style="stroke: #383838; stroke-width: 3.0;" width="174" x="12" y="16"/><ellipse cx="60.9" cy="48" fill="#C3C3C3" rx="22" ry="22" style="stroke: #383838; stroke-width: 2.0;"/><path d="M62.7438,42.7813 L62.7438,56.0938 L65.0563,56.0938 Q66.275,56.0938 66.7906,56.5625 Q67.3063,57.0313 67.3063,57.8125 Q67.3063,58.5625 66.7906,59.0313 Q66.275,59.5 65.0563,59.5 L57.0875,59.5 Q55.8375,59.5 55.3219,59.0313 Q54.8063,58.5625 54.8063,57.7813 Q54.8063,57.0313 55.3219,56.5625 Q55.8375,56.0938 57.0875,56.0938 L59.3375,56.0938 L59.3375,42.7813 L55.65,42.7813 L55.65,46 Q55.65,47.2188 55.1813,47.75 Q54.7125,48.2813 53.9625,48.2813 Q53.2125,48.2813 52.7438,47.75 Q52.275,47.2188 52.275,46 L52.275,39.375 L69.9,39.375 L69.9,46 Q69.9,47.2188 69.4156,47.75 Q68.9313,48.2813 68.1813,48.2813 Q67.4313,48.2813 66.9625,47.75 Q66.4938,47.2188 66.4938,46 L66.4938,42.7813 L62.7438,42.7813 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="68" x="93.1" y="57.8203">Name</text><line style="stroke: #383838; stroke-width: 3.0;" x1="14" x2="184" y1="80" y2="80"/><text fill="#000000" font-family="sans-serif" font-size="22" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="24" y="110.8379">PK: id</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="84" x="90" y="110.8379">INTEGER</text><text fill="#000000" font-family="sans-serif" font-size="22" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="24" y="138.5098">FK:</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="96" x="62" y="138.5098">addressId</text><line style="stroke: #383838; stroke-width: 2.0;" x1="14" x2="184" y1="151.3438" y2="151.3438"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="94" x="24" y="182.1816">first TEXT</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="90" x="24" y="209.8535">last TEXT</text><!--class Address--><rect fill="#F8F8F8" filter="url(#f1lnoyxpiaul1o)" height="206.6875" id="Address" style="stroke: #383838; stroke-width: 3.0;" width="174" x="12" y="342"/><ellipse cx="50.1" cy="374" fill="#C3C3C3" rx="22" ry="22" style="stroke: #383838; stroke-width: 2.0;"/><path d="M51.9438,368.7813 L51.9438,382.0938 L54.2563,382.0938 Q55.475,382.0938 55.9906,382.5625 Q56.5063,383.0313 56.5063,383.8125 Q56.5063,384.5625 55.9906,385.0313 Q55.475,385.5 54.2563,385.5 L46.2875,385.5 Q45.0375,385.5 44.5219,385.0313 Q44.0063,384.5625 44.0063,383.7813 Q44.0063,383.0313 44.5219,382.5625 Q45.0375,382.0938 46.2875,382.0938 L48.5375,382.0938 L48.5375,368.7813 L44.85,368.7813 L44.85,372 Q44.85,373.2188 44.3813,373.75 Q43.9125,374.2813 43.1625,374.2813 Q42.4125,374.2813 41.9438,373.75 Q41.475,373.2188 41.475,372 L41.475,365.375 L59.1,365.375 L59.1,372 Q59.1,373.2188 58.6156,373.75 Q58.1313,374.2813 57.3813,374.2813 Q56.6313,374.2813 56.1625,373.75 Q55.6938,373.2188 55.6938,372 L55.6938,368.7813 L51.9438,368.7813 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="92" x="79.9" y="383.8203">Address</text><line style="stroke: #383838; stroke-width: 3.0;" x1="14" x2="184" y1="406" y2="406"/><text fill="#000000" font-family="sans-serif" font-size="22" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="24" y="436.8379">PK: id</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="84" x="90" y="436.8379">INTEGER</text><line style="stroke: #383838; stroke-width: 2.0;" x1="14" x2="184" y1="449.6719" y2="449.6719"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="56" x="24" y="480.5098">street</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="28" x="24" y="508.1816">zip</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="74" x="24" y="535.8535">country</text><!--link Name to Address--><path d="M99,222.148 C99,260.388 99,303.734 99,341.964 " fill="none" id="Name-Address" style="stroke: #383838; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacingAndGlyphs" textLength="44" x="51.9063" y="265.8945">0..n</text><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacingAndGlyphs" textLength="44" x="51.9063" y="320.2159">1..1</text><!--
+@startuml
+
+skinparam monochrome true
+skinparam linetype ortho
+scale 2
+
+
+hide methods
+hide stereotypes
+
+class Name << (T,#FFAAAA) >> {
+    <b>PK: id</b> INTEGER
+    <b>FK: </b>addressId
+    - - -
+    first TEXT
+    last TEXT
+}
+
+class Address << (T,#FFAAAA) >> {
+    <b>PK: id</b> INTEGER
+    - - -
+    street
+    zip
+    country
+}
+
+Name "0..n" - - "1..1" Address
+
+@enduml
+
+PlantUML version 1.2017.19(Sun Nov 12 22:46:22 AEDT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_151-b12
+Operating System: Windows Server 2012 R2
+OS Version: 6.3
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

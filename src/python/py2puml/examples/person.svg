@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="542px" preserveAspectRatio="none" style="width:386px;height:542px;" version="1.1" viewBox="0 0 386 542" width="386px" zoomAndPan="magnify"><defs><filter height="300%" id="fc2b8s3u34fx2" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class Person--><rect fill="#F8F8F8" filter="url(#fc2b8s3u34fx2)" height="206.6875" id="Person" style="stroke: #383838; stroke-width: 3.0;" width="254" x="61" y="16"/><ellipse cx="140.5" cy="48" fill="#C2C2C2" rx="22" ry="22" style="stroke: #383838; stroke-width: 2.0;"/><path d="M146.0313,39.75 Q146.3438,39.3125 146.7188,39.0938 Q147.0938,38.875 147.5313,38.875 Q148.2813,38.875 148.75,39.3906 Q149.2188,39.9063 149.2188,41.125 L149.2188,44.0313 Q149.2188,45.25 148.75,45.7813 Q148.2813,46.3125 147.5313,46.3125 Q146.8438,46.3125 146.4375,45.9063 Q146.0313,45.5313 145.8125,44.5 Q145.7188,43.7813 145.3438,43.4063 Q144.6875,42.6563 143.4688,42.2188 Q142.25,41.7813 141,41.7813 Q139.4688,41.7813 138.2031,42.4375 Q136.9375,43.0938 135.9531,44.5938 Q134.9688,46.0938 134.9688,48.1563 L134.9688,50.3438 Q134.9688,52.8125 136.75,54.4531 Q138.5313,56.0938 141.7188,56.0938 Q143.5938,56.0938 144.9063,55.5938 Q145.6875,55.2813 146.5313,54.4063 Q147.0625,53.875 147.3594,53.7188 Q147.6563,53.5625 148.0625,53.5625 Q148.7188,53.5625 149.2344,54.0781 Q149.75,54.5938 149.75,55.2813 Q149.75,55.9688 149.0625,56.7813 Q148.0625,57.9375 146.4688,58.5938 Q144.3125,59.5 141.7188,59.5 Q138.6875,59.5 136.2813,58.25 Q134.3125,57.25 132.9375,55.1094 Q131.5625,52.9688 131.5625,50.4063 L131.5625,48.0938 Q131.5625,45.4375 132.7969,43.1406 Q134.0313,40.8438 136.2188,39.6094 Q138.4063,38.375 140.875,38.375 Q142.3438,38.375 143.6406,38.7031 Q144.9375,39.0313 146.0313,39.75 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="80" x="179.5" y="57.8203">Person</text><line style="stroke: #383838; stroke-width: 3.0;" x1="63" x2="313" y1="80" y2="80"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="102" x="73" y="110.8379">+firstname</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="98" x="73" y="138.5098">+lastname</text><line style="stroke: #383838; stroke-width: 3.0;" x1="63" x2="313" y1="151.3438" y2="151.3438"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="230" x="73" y="182.1816">-__init__(self, first, last)</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="118" x="73" y="209.8535">+Name(self)</text><!--class Employee--><rect fill="#F8F8F8" filter="url(#fc2b8s3u34fx2)" height="179.0156" id="Employee" style="stroke: #383838; stroke-width: 3.0;" width="352" x="12" y="342"/><ellipse cx="124.5" cy="374" fill="#C2C2C2" rx="22" ry="22" style="stroke: #383838; stroke-width: 2.0;"/><path d="M130.0313,365.75 Q130.3438,365.3125 130.7188,365.0938 Q131.0938,364.875 131.5313,364.875 Q132.2813,364.875 132.75,365.3906 Q133.2188,365.9063 133.2188,367.125 L133.2188,370.0313 Q133.2188,371.25 132.75,371.7813 Q132.2813,372.3125 131.5313,372.3125 Q130.8438,372.3125 130.4375,371.9063 Q130.0313,371.5313 129.8125,370.5 Q129.7188,369.7813 129.3438,369.4063 Q128.6875,368.6563 127.4688,368.2188 Q126.25,367.7813 125,367.7813 Q123.4688,367.7813 122.2031,368.4375 Q120.9375,369.0938 119.9531,370.5938 Q118.9688,372.0938 118.9688,374.1563 L118.9688,376.3438 Q118.9688,378.8125 120.75,380.4531 Q122.5313,382.0938 125.7188,382.0938 Q127.5938,382.0938 128.9063,381.5938 Q129.6875,381.2813 130.5313,380.4063 Q131.0625,379.875 131.3594,379.7188 Q131.6563,379.5625 132.0625,379.5625 Q132.7188,379.5625 133.2344,380.0781 Q133.75,380.5938 133.75,381.2813 Q133.75,381.9688 133.0625,382.7813 Q132.0625,383.9375 130.4688,384.5938 Q128.3125,385.5 125.7188,385.5 Q122.6875,385.5 120.2813,384.25 Q118.3125,383.25 116.9375,381.1094 Q115.5625,378.9688 115.5625,376.4063 L115.5625,374.0938 Q115.5625,371.4375 116.7969,369.1406 Q118.0313,366.8438 120.2188,365.6094 Q122.4063,364.375 124.875,364.375 Q126.3438,364.375 127.6406,364.7031 Q128.9375,365.0313 130.0313,365.75 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="110" x="165.5" y="383.8203">Employee</text><line style="stroke: #383838; stroke-width: 3.0;" x1="14" x2="362" y1="406" y2="406"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="130" x="24" y="436.8379">+staffnumber</text><line style="stroke: #383838; stroke-width: 3.0;" x1="14" x2="362" y1="449.6719" y2="449.6719"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="328" x="24" y="480.5098">-__init__(self, first, last, staffnum)</text><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="190" x="24" y="508.1816">+GetEmployee(self)</text><!--link Person to Employee--><path d="M188,262.304 C188,289.3 188,316.838 188,341.5888 " fill="none" id="Person-Employee" style="stroke: #383838; stroke-width: 2.0;"/><polygon fill="none" points="174.0002,262.178,188,222.178,202.0002,262.178,174.0002,262.178" style="stroke: #383838; stroke-width: 2.0;"/><!--
+@startuml
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+scale 2
+
+class Person {
+  +firstname
+  +lastname
+  -__init__(self, first, last)
+  +Name(self)
+}
+
+Person <|- - Employee
+class Employee {
+  +staffnumber
+  -__init__(self, first, last, staffnum)
+  +GetEmployee(self)
+}
+
+@enduml
+
+PlantUML version 1.2017.19(Sun Nov 12 22:46:22 AEDT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_151-b12
+Operating System: Windows Server 2012 R2
+OS Version: 6.3
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

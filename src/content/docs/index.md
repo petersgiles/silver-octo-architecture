@@ -19,4 +19,5 @@ DSuite uses platforms we already have
 
 [PNG](use_case.png) | [SVG](use_case.svg)
 
-http://thecodewash.blogspot.com.au/2017/05/communicating-with-your-ios-app-over.html?m=1
+
+

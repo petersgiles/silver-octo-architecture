@@ -14,17 +14,18 @@ function getTask(task) {
 }
 
 gulp.task('watch', function(){
-    gulp.watch('**/*.puml', ['puml']);
+    gulp.watch('**/*.*uml', ['puml']);
 });
 
 gulp.task('puml', function(){
-    gulp.src('**/*.puml')
-        .pipe(cache('plantuml'))
+    gulp.src(['**/*.puml'])
+        .pipe(cache('puml'))
         .pipe(shell([
             'echo <%= file.path %>',
             'plantuml -tsvg <%= file.path %>',
-            'plantuml -tpng <%= file.path %>']))
+            'plantuml -tpng <%= file.path %>']))  
 });
+  
 
 gulp.task('serve', getTask('serve'));
 

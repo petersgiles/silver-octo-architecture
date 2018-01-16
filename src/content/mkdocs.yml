@@ -1,1 +1,10 @@
 site_name: DSuite
+theme:
+  name: 'material'
+markdown_extensions:
+  - meta
+  - admonition  
+  - footnotes
+  - codehilite
+  - toc:
+      permalink: true  

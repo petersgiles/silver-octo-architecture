@@ -39,26 +39,11 @@
 @enduml
 
 @startuml(id=sys_dsuite)
-    folder "DSuite" as SYS_DSUITE {
-        frame "offline" as FRM_OFFLINE {
-            component "Reader" <<ios-app>> as APP_MOB_READER
-        }
-
-        frame "online" {
-            component "Reader" <<web-app>> as APP_READER
-            component "Admin" <<web-app>> as APP_ADMIN
-            component "Web API" <<web-app>> as APP_WEB_API
-        }
-    }
+    component "DSuite" <<system>> as SYS_DSUITE 
 @enduml
 
 @startuml(id=app_ms_office)
-    folder "Desktop Applications" as APP_MS_OFFICE {
-        component "MS Word" <<app>> as APP_MS_WORD 
-        component "MS Excel" <<app>> as APP_MS_EXCEL
-        component "MS PowerPoint" <<app>> as APP_MS_POWERPOINT
-        component "PDF" <<app>> as APP_PDF
-    }
+    component "Office & Desktop Applications" <<app>> as APP_MS_OFFICE 
 @enduml
 
 @startuml(id=act_user)
