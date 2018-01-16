@@ -10,6 +10,6 @@ skinparam node {
 }
 
 skinparam component {
-    backgroundColor<<app>> CornFlowerBlue
+    backgroundColor<<app>> LightBlue
     borderColor<<app>> Indigo
 }

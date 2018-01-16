@@ -14,8 +14,26 @@
 
 !include includes/common.iuml!act_user
 '/
+
+''' ACTORS
+
+@startuml(id=act_user)
+    actor "Application User" <<person>> as ACT_USER
+@enduml
+
+
+''' PLATFORMS
+
+@startuml(id=sys_dsuite)
+    node "DSuite" <<system>> as SYS_DSUITE 
+@enduml
+
 @startuml(id=pla_couch)    
     node "Couch DB" <<platform>> as PLA_COUCH 
+@enduml
+
+@startuml(id=pla_web)    
+    node "Web Servers" <<platform>> as PLA_WEB
 @enduml
 
 @startuml(id=pla_sp)    
@@ -26,41 +44,30 @@
     node "MS SQL Server" <<platform>> as PLA_SQL 
 @enduml
 
-@startuml(id=note_ad)
-    note "Secured with\nDirectory Services" as NOTE_DS
-@enduml
+''' SERVICES
 
 @startuml(id=svc_mi)    
     component "Mobile Iron" <<service>> as SVC_MI
 @enduml
 
 @startuml(id=svc_esb)    
-    queue "Service Bus" <<service>> as SVC_ESB
+    queue "Enterprise Service Bus" <<service>> as SVC_ESB
 @enduml
 
-@startuml(id=sys_dsuite)
-    folder "DSuite" as SYS_DSUITE {
-        frame "offline" as FRM_OFFLINE {
-            component "Reader" <<ios-app>> as APP_MOB_READER
-        }
 
-        frame "online" {
-            component "Reader" <<web-app>> as APP_READER
-            component "Admin" <<web-app>> as APP_ADMIN
-            component "Web API" <<web-app>> as APP_WEB_API
-        }
-    }
-@enduml
+''' APPLICATIONS
 
 @startuml(id=app_ms_office)
-    folder "Desktop Applications" as APP_MS_OFFICE {
-        component "MS Word" <<app>> as APP_MS_WORD 
-        component "MS Excel" <<app>> as APP_MS_EXCEL
-        component "MS PowerPoint" <<app>> as APP_MS_POWERPOINT
-        component "PDF" <<app>> as APP_PDF
-    }
+    component "Office" <<app>> as APP_MS_OFFICE 
 @enduml
 
-@startuml(id=act_user)
-    actor "Application User" <<person>> as ACT_USER
+@startuml(id=app_browser)
+    component "Web Browser" <<app>> as APP_BROWSER 
 @enduml
+
+@startuml(id=app_email)
+    component "Email" <<app>> as APP_EMAIL 
+@enduml
+
+''' NOTES
+

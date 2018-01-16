@@ -1,12 +1,13 @@
-# DSuite
+# What is DSuite
 
-DSuite is an Executive Decision Information Management System (EDIM).
+DSuite is a collection of tools designed to provide an Executive Decision Information Management System (EDIM).
 
 It is designed to deliver enhanced communication and discovery of important information to very important people (VIPs).
 
 ## Overview
 
-DSuite uses platforms we already have
+DSuite uses platforms and applications that we already have and use regularly use. It is secured by the Corporate network
+
 
 ![diagram](overview.svg)
 
@@ -19,4 +20,5 @@ DSuite uses platforms we already have
 
 [PNG](use_case.png) | [SVG](use_case.svg)
 
-http://thecodewash.blogspot.com.au/2017/05/communicating-with-your-ios-app-over.html?m=1
+
+
