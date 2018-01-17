@@ -13,12 +13,3 @@ DSuite uses platforms and applications that we already have and use regularly us
 
 [PNG](overview.png) | [SVG](overview.svg)
 
-
----
-
-![diagram](use_case.svg)
-
-[PNG](use_case.png) | [SVG](use_case.svg)
-
-
-

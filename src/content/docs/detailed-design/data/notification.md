@@ -1,5 +1,13 @@
 # Notification
 
+## ER Diagram
+
+![diagram](notification.svg)
+
+[PNG](notification.png) | [SVG](notification.svg)
+
+## Definition
+
 This model defines notification management
 
 - Subscriber
@@ -10,14 +18,3 @@ This model defines notification management
     - An event to react too and the message to send
 - Subscription
     - The join of all the above   
-
-
---- 
-
-## ER Diagram
-
-![diagram](notification.svg)
-
-[PNG](notification.png) | [SVG](notification.svg)
-
----

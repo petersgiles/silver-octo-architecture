@@ -21,6 +21,37 @@
     actor "Application User" <<person>> as ACT_USER
 @enduml
 
+@startuml(id=act_guest)
+    actor "Guest" <<function>> as ACT_GUEST
+@enduml
+
+@startuml(id=act_reader)
+    actor "Reader" <<function>> as ACT_READER
+@enduml
+
+@startuml(id=act_editor)
+    actor "Editor" <<function>> as ACT_EDITOR
+@enduml
+
+@startuml(id=act_owner)
+    actor "Owner" <<function>> as ACT_OWNER
+@enduml
+
+@startuml(id=act_aps)
+    actor "APS" <<person>> as ACT_APS
+@enduml
+
+@startuml(id=act_dlo)
+    actor "DLO" <<person>> as ACT_DLO
+@enduml
+
+@startuml(id=act_pmo)
+    actor "PMO" <<person>> as ACT_PMO
+@enduml
+
+@startuml(id=act_vip)
+    actor "VIP" <<person>> as ACT_VIP
+@enduml
 
 ''' PLATFORMS
 
@@ -50,9 +81,29 @@
     component "Mobile Iron" <<service>> as SVC_MI
 @enduml
 
-@startuml(id=svc_esb)    
-    queue "Enterprise Service Bus" <<service>> as SVC_ESB
+@startuml(id=svc_ad)    
+    component "Active Directory" <<service>> as SVC_AD
 @enduml
+
+@startuml(id=svc_vanguard)    
+    component "Vanguard" <<service>> as SVC_VANGUARD
+@enduml
+
+@startuml(id=svc_couch_proxy)
+ 
+    node "Proxy Service" as SVC_COUCH_PROXY <<service>> {
+        component "Authentication Manager" as CPNT_USER_AUTH 
+        component "Couch Proxy" as CPNT_COUCH_PROXY
+
+        CPNT_COUCH_PROXY .right. CPNT_USER_AUTH
+    }
+
+@enduml
+
+@startuml(id=svc_esb)    
+    queue "Enterprise Service Bus" <<esb>> as SVC_ESB
+@enduml
+
 
 
 ''' APPLICATIONS

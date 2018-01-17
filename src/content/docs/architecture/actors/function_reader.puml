@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+!include ../../includes/theme.iuml
+!include ../../includes/common.iuml!act_reader
+
+ACT_READER .. (Read) : Uses
+ACT_READER .. (Respond)  : Uses
+ACT_READER .. (View\nNotifications)  : Uses
+
+@enduml
+@startuml
+
+(*) --> "Respond"
+
+if "Has Delegation" then
+  -->[yes] "Enable Choices"
+  --> (*)
+else
+  ->[no] "Disable Choices"
+  --> (*)
+endif
+
+@enduml

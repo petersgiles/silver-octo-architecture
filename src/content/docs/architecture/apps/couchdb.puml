@@ -1,52 +1,50 @@
 @startuml
 !include ../../includes/theme.iuml
 
+!include ../../includes/common.iuml!act_user
+
+
 title CouchDB
 
 frame "Network Domain" {
 
-    actor "Internal User" <<person>> as AU
+    !include ../../includes/common.iuml!svc_esb
 
-    component [Active Directory] <<system>> as AD 
-    component [Vanguard] <<system>> as VG
+    !include ../../includes/common.iuml!svc_mi
+    !include ../../includes/common.iuml!svc_ad
+    !include ../../includes/common.iuml!svc_vanguard
 
-    component [Mobile Iron] <<system>> as MI 
-
-    node "Proxy Service" as CPS {
-        component "Authentication Manager" as AUTH 
-        component "Couch Proxy" as CP 
-    }
-
-    queue "Event Bus" <<service>> as ESB
-
+    !include ../../includes/common.iuml!svc_couch_proxy
 
     node "Couch DB Cluster" as CC {
 
+        note "User DBs are created\nfor each user" as N1
         database "User Inbox" <<system>> as DB_IN
         database "User Outbox" <<system>> as DB_OUT
+        N1 .up. DB_IN
+        N1 .up. DB_OUT
 
-
-        note "Internally Managed\nRoles for Couch\naccess managment" as N1
+        note "Internally Managed\nRoles for Couch\naccess managment" as N2
         database "User Roles" <<system>> as DB_ROLE 
-
+        N2 .up. DB_ROLE
     }
 
 }
 
-AUTH .. AD
-AUTH .. VG
-AUTH .. DB_ROLE
+CPNT_USER_AUTH .. SVC_AD
+CPNT_USER_AUTH .. SVC_VANGUARD
+CPNT_USER_AUTH .. DB_ROLE
 
-MI .up. AD
-MI .up. VG
+SVC_MI .up. SVC_AD
+SVC_MI .up. SVC_VANGUARD
 
-CP .right. AUTH
-AU .. CP
-CP -- DB_IN
-CP -- DB_OUT
-ESB <-down-> DB_IN
-ESB <-down-> DB_OUT
 
-N1 .up. DB_ROLE
+ACT_USER .. SVC_COUCH_PROXY
+CPNT_COUCH_PROXY -- DB_IN
+CPNT_COUCH_PROXY -- DB_OUT
+SVC_ESB <-down-> DB_IN
+SVC_ESB <-down-> DB_OUT
+
+
 
 @enduml
