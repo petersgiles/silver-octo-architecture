@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+!include ../../includes/theme.iuml
+!include ../../includes/common.iuml!act_guest
+!include ../../includes/common.iuml!app_email
+
+ACT_GUEST .. (Request\nAccess) : Uses
+(Request\nAccess) .down. APP_EMAIL : access-request@dsuite.gov.au
+
+@enduml

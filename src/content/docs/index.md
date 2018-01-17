@@ -4,21 +4,15 @@ DSuite is a collection of tools designed to provide an Executive Decision Inform
 
 It is designed to deliver enhanced communication and discovery of important information to very important people (VIPs).
 
-## Overview
+!!! quote
+    DSuite is a software system I can use to brief a VIP
 
-DSuite uses platforms and applications that we already have and use regularly use. It is secured by the Corporate network
-
+## Use Case
 
 ![diagram](overview.svg)
 
 [PNG](overview.png) | [SVG](overview.svg)
 
-
----
-
-![diagram](use_case.svg)
-
-[PNG](use_case.png) | [SVG](use_case.svg)
-
+This diagram demonstrates the highest level of abstraction for the system. DSuite should be thought of as something that delivers value to its users. 
 
 

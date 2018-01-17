@@ -1,5 +1,13 @@
 # User Management
 
+## ER Diagram
+
+![diagram](access_er.svg)
+
+[PNG](access_er.png) | [SVG](access_er.svg)
+
+## Definition
+
 This model defines the security for the application 
 
 > _IMPORTANT_ This does not secure artefacts managed outside the system. It provides data that would be applied to external systems. The _identity source_ describes where the identity comes from 
@@ -15,12 +23,3 @@ This model defines the security for the application
 - Role, Features & Operations
     - application operations grouped up by diferent levels
 
---- 
-
-## ER Diagram
-
-![diagram](access_er.svg)
-
-[PNG](access_er.png) | [SVG](access_er.svg)
-
----

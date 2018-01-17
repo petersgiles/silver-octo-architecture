@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+!include ../../includes/theme.iuml
+!include ../../includes/common.iuml!act_reader
+!include ../../includes/common.iuml!act_editor
+
+ACT_READER <|-- ACT_EDITOR: Can Do
+
+
+ACT_EDITOR .. (Edit) : Uses
+ACT_EDITOR .. (Change\nCollaboration\nState)  : Uses
+
+@enduml
+
+@enduml

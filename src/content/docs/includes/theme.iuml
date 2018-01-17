@@ -1,7 +1,10 @@
 skinparam handwritten false
 skinparam actor {
-    backgroundColor<<person>> Tan
-    borderColor<<person>> DimGray
+    backgroundColor<<function>> Tan
+    borderColor<<function>> DimGray
+
+    backgroundColor<<person>> Pink
+    borderColor<<person>> Black
 }
 
 skinparam node {
@@ -13,3 +16,11 @@ skinparam component {
     backgroundColor<<app>> LightBlue
     borderColor<<app>> Indigo
 }
+
+
+skinparam queue {
+    backgroundColor<<esb>> Pink 
+    borderColor<<esb>> Coral
+}
+
+

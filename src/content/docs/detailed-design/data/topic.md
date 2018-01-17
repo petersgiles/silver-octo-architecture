@@ -1,10 +1,17 @@
 # User Defined Topics
 
+## ER Diagram
+
+![diagram](topic.svg)
+
+[PNG](topic.png) | [SVG](topic.svg)
+
+## Definition
+
 Very often adhoc information stores to be added to a DataStore
 
 This design allows for diverse data needs
 
----
 
 ## How to enter data
 
@@ -18,8 +25,6 @@ This design allows for diverse data needs
     - someone who can explain why the topic, attribute or relationship needs to exist
     - reason could also be captured as a topic with attributes & relationship etc.
 - Enter data into the Topic, Attribute & Relationship tables
-
----
 
 ## How to query data
 
@@ -42,12 +47,4 @@ PIVOT
     MAX(v)
     FOR attrs in ([1], [2], [3], ... )
 )
-
----
 ```
-## ER Diagram
-
-![diagram](topic.svg)
-
-[PNG](topic.png) | [SVG](topic.svg)
-

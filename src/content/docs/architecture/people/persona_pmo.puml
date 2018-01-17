@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+!include ../../includes/theme.iuml
+!include ../../includes/common.iuml!act_editor
+!include ../../includes/common.iuml!act_pmo
+
+ACT_PMO --|> ACT_EDITOR  : Is a
+
+@enduml

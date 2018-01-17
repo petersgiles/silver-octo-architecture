@@ -1,5 +1,14 @@
 # Pack Navigation
 
+## ER Diagram
+
+![diagram](navigation_er.svg)
+
+[PNG](navigation_er.png) | [SVG](navigation_er.svg)
+
+
+
+
 ## Index view
 Within a pack 
 
@@ -17,11 +26,6 @@ Within a pack
 
 ---
 
-## ER Diagram
-
-![diagram](navigation_er.svg)
-
-[PNG](navigation_er.png) | [SVG](navigation_er.svg)
 
 
 
