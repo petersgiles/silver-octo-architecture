@@ -1,0 +1,94 @@
+@startuml
+!include ../../includes/theme.iuml
+
+title Document Conversion System
+
+folder "Sharepoint" as SP {
+    [Document Store] as doclib
+    [Html Store] as htmllib
+    !include ../../includes/common.iuml!svc_event_bridge
+}
+
+folder "App Server" as APP {
+
+    !include ../../includes/common.iuml!svc_esb
+
+    component "Brief Event Publisher" <<service>> as BEP 
+
+    !include ../../includes/common.iuml!svc_event_publisher
+    !include ../../includes/common.iuml!svc_brief_converter
+}
+
+SVC_EVENT_BRIDGE ----> SVC_ESB 
+
+SVC_ESB <-up-> SVC_EVENT_PUBLISHER
+SVC_ESB <-up-> BEP
+SVC_ESB -up-> SVC_BRIEF_CONVERTER
+
+SVC_BRIEF_CONVERTER <-- doclib : GET
+SVC_BRIEF_CONVERTER --> htmllib : PUT
+
+@enduml
+@startuml
+!include ../../includes/theme.iuml
+
+title Document Conversion Activity
+
+(*) --> "Create/Modify\nPack/Brief" as A1
+
+partition "Event Bridge" {
+    --> === S1 ===
+    --> "Item\nUpdating" as EB1
+
+    === S1 === --> "Item\nUpdated" as EB2
+ 
+    A1 --> "Item\nAdded" as EB3
+
+    EB1 --> === S2 === 
+    EB2 --> === S2 ===
+
+}
+
+partition "Event Publisher" {
+
+
+
+     if "Document\nChanged" then
+        --down--> [yes] "Publish\nDocument Changed" as EP1
+     else
+        --> [no] "NOOP" as NOOP
+     endif
+
+    === S2 === --> "Publish\nItem Changed" as EP2
+
+    EB3 --> "Publish\nItem Created" as EP3
+
+}
+
+partition "Brief Event Publisher" {
+    EP1 --> "Publish\nBrief Document\nChanged" as BEP1
+    EP2 --> "Publish\nBrief Item\nChanged" as BEP2
+    EP3 --> "Publish\nBrief Item\nCreated" as BEP3
+}
+note right  
+    ONLY Published if incomming messages 
+    have type Brief
+end note
+
+partition "Brief Document Converter" {
+    BEP1 --> "Convert\nBrief Document" as BDC1
+}
+
+partition "Brief Item Metadata Storer" {
+    BEP2 --> === S3 ===
+    BEP3 --> === S3 ===
+
+    === S3 === --> "Store\nBrief Metadata" as BIMDS1
+}
+
+NOOP --right--> (*)
+
+BDC1 --right--> (*)
+BIMDS1 --right--> (*)
+
+@enduml

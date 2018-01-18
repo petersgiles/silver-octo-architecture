@@ -104,6 +104,18 @@
 
 @enduml
 
+@startuml(id=svc_event_bridge)    
+    component "Event Bridge" <<service>> as SVC_EVENT_BRIDGE
+@enduml
+
+@startuml(id=svc_event_publisher)    
+    component "Event Publisher" <<service>> as SVC_EVENT_PUBLISHER
+@enduml
+
+@startuml(id=svc_brief_converter)    
+    component "Brief Converter" <<service>> as SVC_BRIEF_CONVERTER
+@enduml
+
 @startuml(id=svc_esb)    
     queue "Enterprise Service Bus" <<esb>> as SVC_ESB
 @enduml
