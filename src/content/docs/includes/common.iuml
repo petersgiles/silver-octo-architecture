@@ -37,6 +37,10 @@
     actor "Owner" <<function>> as ACT_OWNER
 @enduml
 
+@startuml(id=act_admin)
+    actor "Administrator" <<function>> as ACT_ADMIN
+@enduml
+
 @startuml(id=act_aps)
     actor "APS" <<person>> as ACT_APS
 @enduml

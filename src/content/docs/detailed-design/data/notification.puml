@@ -8,36 +8,37 @@ hide stereotypes
 title Notification Subscription Management
 
 ' entities
-
-
 Table(subscription, "Subscription") {
 }
 
 Table(subscription_map, "Subscription Topic") {
 }
 
-Table(subscription_type, "Subscription Type") {
-}
-
-Table(subscription_event_type, "Event Type") {
+Table(subscription_event, "Event") {
 }
 
 Table(message_templates, "Message Template") {
 }
 
+Table(user, "Subscriber <<person>> ") {
+}
 
-
-Table(user, "Subscriber") {
+Table(notification_channel, "Notification Channel") {
 }
 
 
 ' relationships
 
-user "*" .. "*" subscription : Can have many
-subscription "1" .. "*" subscription_type
-subscription "1" .. "1" subscription_map
-subscription_type "1" .. "*" subscription_event_type
-subscription_type "1" .. "1" message_templates
+user }-left-{ subscription
+user }-right-{ notification_channel
+
+subscription *-- subscription_map
+subscription *-- subscription_event
+
+notification_channel --* message_templates 
+subscription_event --* message_templates 
+
+
 
 
 @enduml

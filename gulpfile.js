@@ -31,4 +31,4 @@ gulp.task('serve', getTask('serve'));
 
 gulp.task('build', ['puml']);
 
-gulp.task('default', ['watch', 'serve']);
+gulp.task('default', ['watch', 'puml', 'serve']);

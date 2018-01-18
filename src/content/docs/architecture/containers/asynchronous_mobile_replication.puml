@@ -61,7 +61,7 @@ partition "DSuite AMR" {
 }
 
 partition "DSuite Reader" {
-  === S2 === --> "Synchronise user's available Pack/Brief"  
+  === S2 === --> "Synchronise changes"  
   --> === S3 ===
 }
 
@@ -81,12 +81,12 @@ partition "DSuite Collaboration" {
 }
 
 partition "DSuite AMR" {
-  === S1 === --> "Remove Brief To AMR User Databases"
+  === S1 === --> "Remove Brief from AMR User Databases"
   --> === S2 ===
 }
 
 partition "DSuite Reader" {
-  === S2 === --> "Synchronise user's available Briefs"    
+  === S2 === --> "Synchronise changes"    
   --> === S3 ===
 }
 
