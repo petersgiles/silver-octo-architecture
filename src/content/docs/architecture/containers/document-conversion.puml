@@ -22,6 +22,8 @@ folder "App Server" as APP {
     [DSuite Document Item Metadata Management] as DIMM
     [Document Conversion] as DC
     database "Shared Store" as SQL
+
+    
 }
 
 
