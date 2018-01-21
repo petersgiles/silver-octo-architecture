@@ -51,12 +51,10 @@ partition "Event Bridge" {
 
 partition "Event Publisher" {
 
-
-
-     if "Document\nChanged" then
+     if "Is it a Document?" then
         --down--> [yes] "Publish\nDocument Changed" as EP1
      else
-        --> [no] "NOOP" as NOOP
+        --> [no] "NoOp" as NOOP
      endif
 
     === S2 === --> "Publish\nItem Changed" as EP2
@@ -69,26 +67,29 @@ partition "Brief Event Publisher" {
     EP1 --> "Publish\nBrief Document\nChanged" as BEP1
     EP2 --> "Publish\nBrief Item\nChanged" as BEP2
     EP3 --> "Publish\nBrief Item\nCreated" as BEP3
+
+
 }
 note right  
     ONLY Published if incomming messages 
     have type Brief
 end note
 
-partition "Brief Document Converter" {
+partition "DSuite Document Converter" {
     BEP1 --> "Convert\nBrief Document" as BDC1
 }
 
-partition "Brief Item Metadata Storer" {
-    BEP2 --> === S3 ===
-    BEP3 --> === S3 ===
+partition "DSuite Document Item Metadata Management" {
+    BEP2 --> === S5 ===
+    BEP3 --> === S5 ===
 
-    === S3 === --> "Store\nBrief Metadata" as BIMDS1
+    === S5 === --> "Store\nBrief Metadata" as BIMDS1
 }
 
-NOOP --right--> (*)
+
 
 BDC1 --right--> (*)
 BIMDS1 --right--> (*)
+NOOP --right--> (*)
 
 @enduml
