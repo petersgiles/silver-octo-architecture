@@ -17,13 +17,28 @@ folder "App Server" as APP {
 
     !include ../../includes/common.iuml!svc_event_publisher
     !include ../../includes/common.iuml!svc_brief_converter
+
+    [DSuite Document Conversion] as ADC
+    [DSuite Document Item Metadata Management] as DIMM
+    [Document Conversion] as DC
+    database "Shared Store" as SQL
 }
+
+
+
 
 SVC_EVENT_BRIDGE ----> SVC_ESB 
 
 SVC_ESB <-up-> SVC_EVENT_PUBLISHER
 SVC_ESB <-up-> BEP
 SVC_ESB -up-> SVC_BRIEF_CONVERTER
+SVC_ESB <-down-> ADC
+SVC_ESB <-down-> DC
+SVC_ESB -down-> DIMM
+
+DC --> SQL
+DIMM --> SQL
+
 
 SVC_BRIEF_CONVERTER <-- doclib : GET
 SVC_BRIEF_CONVERTER --> htmllib : PUT
@@ -75,10 +90,6 @@ note right
     have type Brief
 end note
 
-partition "DSuite Document Converter" {
-    BEP1 --> "Convert\nBrief Document" as BDC1
-}
-
 partition "DSuite Document Item Metadata Management" {
     BEP2 --> === S5 ===
     BEP3 --> === S5 ===
@@ -87,6 +98,15 @@ partition "DSuite Document Item Metadata Management" {
 }
 
 
+
+partition "DSuite Document Converter" {
+    BEP1 --> "Convert\nBrief Document" as BDC1
+}
+
+partition "Generic Document Converter" {
+    BDC1 --> "Convert\n Document" as GDC1
+    GDC1 --> BDC1
+}
 
 BDC1 --right--> (*)
 BIMDS1 --right--> (*)

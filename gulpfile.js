@@ -27,8 +27,11 @@ gulp.task('puml', function(){
 });
   
 
+
 gulp.task('serve', getTask('serve'));
 
 gulp.task('build', ['puml']);
+
+gulp.task('combine', getTask('combine'));
 
 gulp.task('default', ['watch', 'puml', 'serve']);

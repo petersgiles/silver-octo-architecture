@@ -1,0 +1,751 @@
+# Index {: .page-title}
+
+### What is DSuite
+
+DSuite is a collection of tools designed to provide an Executive Decision Information Management System (EDIM).
+
+It is designed to deliver enhanced communication and discovery of important information to very important people (VIPs).
+
+!!! quote DSuite is a software system I can use to brief a VIP
+
+#### Use Case
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/overview.svg)
+
+[PNG](overview.png) | [SVG](overview.svg)
+
+This diagram demonstrates the highest level of abstraction for the system. DSuite should be thought of as something that delivers value to its users.
+
+
+
+# Architecture {: .page-title}
+
+
+## Architecture\software system {: .page-title}
+
+hero: DSuite System
+title: Software System
+description: C4 Software System.
+
+### Software System
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/software_system.svg)
+
+[PNG](software_system.png) | [SVG](software_system.svg)
+
+
+This is a zoomed out view showing the big picture of the system. Here we are focusing on people and software systems rather than technologies, protocols and other low-level details.
+
+DSuite uses platforms and applications that we already have and use regularly use. It is secured by the Corporate network
+
+
+!!! warning
+    Do Not Assume subjects not explicitly included in these documents
+    have not been considered. This documentation is capturing subjects that
+    are not self evident or topics that have come up during development
+    that have needed some explanation
+
+## UX {: .page-title}
+
+
+### architecture\UX\index {: .page-title}
+
+### User Experience
+
+## Containers {: .page-title}
+
+
+### Architecture\containers\asynchronous mobile replication {: .page-title}
+
+hero: Asynchronous Mobile Replication
+title: Asynchronous Mobile Replication
+description: C4 Component (Asynchronous Mobile Replication).
+
+### Asynchronous Mobile Replication
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/asynchronous_mobile_replication.svg)
+
+[PNG](asynchronous_mobile_replication.png) | [SVG](asynchronous_mobile_replication.svg)
+
+
+#### Background
+
+In most cases, devices will be continuously connected to the enterprise network via a mobile device management (MDM) solution. Traditional, synchronous (‘just in time’) delivery of content is achieved as the data services are always reachable.
+
+It is not uncommon, for mobile users to spend periods of time disconnected from the enterprise network – particularly when they are travelling. During these periods, a method of asynchronously transferring and storing content locally on the mobile device is required. Most applications that require this functionality (such as email) maintain a local database for this purpose, but no standard currently exists at PM&C for internally developed applications.
+
+#### CouchDB
+
+In order to provide VIP access to their briefing materials while disconnected, client applications will make use of CouchDB.
+The system is architected to act as a broker between a separate System of Record (SOR) and an end user on a mobile device. No information is stored on CouchDB that is not also held on this SOR. Documents are created and modified primarily on the SOR and publication to CouchDB occurs only after explicit approval.
+
+- A lightweight service routinely queries the SOR to identify any documents that are marked as ready to share to named users. It stores this information in an Enterprise Service Bus (ESB) to ensure that no documents are lost.
+- Another service regularly extracts user-level data from the ESB, transforms it and inserts it into a dedicated CouchDB database for that user. Separate databases ensure complete logical separation of user data and have no detrimental effect on the performance of the system.
+- When a connection to the corporate network can be established via the Enterprise Mobile Device Management solution, the application connects to CouchDB. CouchDB authenticates the current user of the device, and then determines which documents they are authorised to access.
+- Once this process is complete, the mobile application pulls down any new or modified document information for that user, storing it locally in PouchDB. If documents have been modified locally by the user, these changes are pushed to a separate CouchDB database for integration with the SOR.
+
+#### Components
+
+##### Infrastructure
+
+The Asynchronous Mobile Replication solution is designed to operate within the current infrastructure requirements of the Department. Except where explicitly outlined in this document, it will leverage existing compute, storage and network patterns. This includes settings which directly affect compliance with the regulatory and legal obligations of the Department.
+
+##### CouchDb
+
+CouchDB is an open source NoSQL database that is developed by the Apache Software Foundation under version 2.0 of the Apache License. CouchDB is designed with offline use in mind, and it inherently supports asynchronous replication of data between devices that may experience periods of disconnectedness. CouchDB is extensible, scalable and resilient and forms the core of various high-profile solutions such as the JavaScript package manager npm and the BBC for its online content shareing platform.
+
+##### PouchDb
+
+PouchDB is a JavaScript library that enables applications to store data locally while offline, then synchronize it with CouchDB and compatible servers when the application is back online, keeping the user's data in sync no matter where they next login. It is extensible and is compatible with all modern browsers.
+
+##### Authentication
+
+The proposed solution leverages a Web API that provides both authentication and authorisation functionality. This API acts as a broker that translates the logged-in user’s credentials into a format that is understood by CouchDB. In addition to restricting information access to those that have a need to know, this model ensures a seamless user experience by facilitating single sign-on (SSO).
+
+##### Monitoring and Audit
+
+In addition to application-level performance monitoring, the Asynchronous Mobile Replication solution will record detailed usage, authentication and authorisation events for review by ICT support staff and cyber security analysts.
+
+#### Activity
+
+##### Share
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/asynchronous_mobile_replication_001.svg)
+
+[PNG](asynchronous_mobile_replication_001.png) | [SVG](asynchronous_mobile_replication_001.svg)
+
+##### Unshare
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/asynchronous_mobile_replication_002.svg)
+
+[PNG](asynchronous_mobile_replication_002.png) | [SVG](asynchronous_mobile_replication_002.svg)
+
+### Architecture\containers\browser {: .page-title}
+
+### Web App
+
+This app has a small amount of off-line capability depending on the browser
+
+
+
+#### Browser App
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/browser.svg)
+
+[PNG](browser.png) | [SVG](browser.svg)
+
+---
+
+<!---
+#### Use Case
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/browser_001.svg)
+
+[PNG](browser_001.png) | [SVG](browser_001.svg)
+
+---!>
+
+### Architecture\containers\decisions actions {: .page-title}
+
+### Recommendations
+
+
+Improve the current decision making box, and maybe have a easy way to imput it. It should be above the policy brief. This also needs to be prinatbale for offices that will sign it by hand and not electronically.
+
+### Architecture\containers\document conversion {: .page-title}
+
+### Document Conversion
+
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/document-conversion.svg)
+
+[PNG](document-conversion.png) | [SVG](document-conversion.svg)
+
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/document-conversion_001.svg)
+
+[PNG](document-conversion_001.png) | [SVG](document-conversion_001.svg)
+
+### Architecture\containers\identity access {: .page-title}
+
+### Identity and Access
+
+### Architecture\containers\mobile {: .page-title}
+
+### iOS Mobile Reader
+
+This app is Offline Capable
+
+#### Use Case
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/containers/mobile.svg)
+
+[PNG](mobile.png) | [SVG](mobile.svg)
+
+---
+
+### Architecture\containers\notifications {: .page-title}
+
+### Notifications
+
+
+#### Change Notifications to specific briefs
+Allow for 'your subscription' types to apply to brief level.
+
+
+As a user of the system I want to be able to sign up for the same notifications that are available for policy level notifications, but for a specific brief. E.g. Sent me an alert when a specific brief is workflowed.
+
+
+#### Revisit requirements and implementation for subscriptions
+
+
+Revisit requirements and implementation for subscriptions
+
+Nick says: don't throw the baby out of the bathwater
+
+This used to be about freezing the top pane of the brief subscription
+As a user of the system I want the 'action' list to be a freeze pane on the adviser notification page, so when you scroll you can see read the actions at the top that you are signing the adviser up for.
+
+### Architecture\containers\printing {: .page-title}
+
+### Printing
+
+!!! danger
+    BUT ITS DIGITAL SUNSHINE
+
+### Architecture\containers\reporting {: .page-title}
+
+### Reporting
+
+
+#### Automate Charts
+
+As a user of the system, I want to be able to have an overall reporting page, that is real time, is downloadable, is easy to read, where I can add/remove categories, and select specific timeframes. This will allow me to do my job better and understand other area's work load.
+
+MVP - Automate the charts Valdis resets every Thursday. CHARTSSSSSSSSS.
+
+Automate reporting and display in a easy readable fashion (e.g. Charts JS).
+
+Musts:
+
+- It needs to be download-able
+- Can select time periods (e.g.  Month prior, week prior, selectable time frame)
+- Also can select/unselect categories
+
+
+
+### Architecture\containers\search discovery {: .page-title}
+
+### Search and Discovery
+
+## People {: .page-title}
+
+
+### Architecture\people\functions {: .page-title}
+
+### Functions
+
+#### Guest
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/function_guest.svg)
+
+[PNG](function_guest.png) | [SVG](function_guest.svg)
+
+A Guest is an Authenticated identity that has no Authorisation.
+
+- Request Access via Email
+
+#### Reader
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/function_reader.svg)
+
+[PNG](function_reader.png) | [SVG](function_reader.svg)
+
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/function_reader_001.svg)
+
+[PNG](function_reader_001.png) | [SVG](function_reader_001.svg)
+
+
+A Reader can consume prepared briefs and perform rudimentary tasks in response to a brief
+
+- Search and Discovery
+- Read / View
+    - Brief Material
+    - Attachments
+    - Discussions
+    - Recommendations
+    - Notifications (about changes)
+- Respond
+    - Make Comments (Add to Discussion)
+    - Choose a Recommendation Response (if they are granted the delegation to do so)
+
+#### Editor
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/function_editor.svg)
+
+[PNG](function_editor.png) | [SVG](function_editor.svg)
+
+An Editor is able to Collaborate on a Brief they can perform all the actions of a [Reader](#reader)
+
+- Edit
+    - Brief Material
+    - Attachments
+- Process
+    - Change Collaboration State
+
+
+
+#### Owner
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/function_owner.svg)
+
+[PNG](function_owner.png) | [SVG](function_owner.svg)
+
+An Owner is able to Manage a Brief's lifecycle they can perform all the actions of an [Editor](#editor)
+
+- Create
+    - Briefs and associated Material
+- Archive
+    - Briefs and associated Material
+
+### Architecture\people\personas {: .page-title}
+
+### Personas
+
+
+#### VIP
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/persona_vip.svg)
+
+[PNG](persona_vip.png) | [SVG](persona_vip.svg)
+
+A Very Important Person i.e. The Prime Minister, A Minister or a Departmental Secretary
+
+#### PMO
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/persona_pmo.svg)
+
+[PNG](persona_pmo.png) | [SVG](persona_pmo.svg)
+
+A Parlimentary Officer who works with a Parlimentary VIP i.e. The Prime Minister's Chief of Staff
+
+#### DLO
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/persona_dlo.svg)
+
+[PNG](persona_dlo.png) | [SVG](persona_dlo.svg)
+
+A Departmental Liason Officer who works with Parlimentary Staff on site
+
+
+#### APS
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/people/persona_aps.svg)
+
+[PNG](persona_aps.png) | [SVG](persona_aps.svg)
+
+A Departmental Officer who works with particular subject material i.e. Travel Briefs
+
+## Use cases {: .page-title}
+
+
+### Architecture\use cases\manage document {: .page-title}
+
+### Edit Document
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/use_cases/manage-document.svg)
+
+[PNG](manage-document.png) | [SVG](manage-document.svg)
+
+
+### Architecture\use cases\manage notifications {: .page-title}
+
+### Manage Notifications
+
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/use_cases/manage-notifications.svg)
+
+[PNG](manage-notifications.png) | [SVG](manage-notifications.svg)
+
+
+#### Fidelity
+
+Readers can increase fidelity but it will clear low fidelity notification subscriptions.
+
+Editior can decrease fidelity but it will clear higher fidelity notification subscriptions.
+
+
+#### ER Diagram
+
+![diagram
+
+### Architecture\use cases\state of play {: .page-title}
+
+### State of Play
+
+
+
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/use_cases/state-of-play.svg)
+
+[PNG](state-of-play.png) | [SVG](state-of-play.svg)
+
+### Architecture\use cases\user management {: .page-title}
+
+### User Management
+
+CabNet have an Authorisaion Portal that could be whiteboxed to manage Users
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/architecture/use_cases/user-management.svg)
+
+[PNG](user-management.png) | [SVG](user-management.svg)
+
+# Detailed design {: .page-title}
+
+
+## Detailed design\index {: .page-title}
+
+### Detailed Design
+
+## Data {: .page-title}
+
+
+### Detailed design\data\access {: .page-title}
+
+### User Management
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/access_er.svg)
+
+[PNG](access_er.png) | [SVG](access_er.svg)
+
+#### Definition
+
+This model defines the security for the application
+
+> _IMPORTANT_ This does not secure artefacts managed outside the system. It provides data that would be applied to external systems. The _identity source_ describes where the identity comes from
+
+- Identity
+    - A real person who may have one or more identities managed elsewhere i.e. Active Directory, Vangard, SharePoint
+- App
+    - DSuite is built from multiple apps. Access to individual apps may be different depending on Identity
+- Personalisation _Nice to Have_
+    - Key Value pairs to set values for personalisation
+- Profile _development and collaboration_
+    - an Identity might have different profiles for different apps
+- Role, Features & Operations
+    - application operations grouped up by diferent levels
+
+
+### Detailed design\data\navigation {: .page-title}
+
+### Pack Navigation
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/navigation_er.svg)
+
+[PNG](navigation_er.png) | [SVG](navigation_er.svg)
+
+
+
+
+#### Index view
+Within a pack
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/navigation_ui_index.svg)
+
+[PNG](navigation_ui_index.png) | [SVG](navigation_ui_index.svg)
+
+---
+
+#### Deck View
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/navigation_ui_deck.svg)
+
+[PNG](navigation_ui_deck.png) | [SVG](navigation_ui_deck.svg)
+
+---
+
+
+
+
+
+
+
+### Detailed design\data\notification {: .page-title}
+
+### Notification
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/notification.svg)
+
+[PNG](notification.png) | [SVG](notification.svg)
+
+#### Definition
+
+Message Templates are determined by a Subscribers current set of Notifications Channels. By default notifications occur within the system on the user's Home Page but they can add email as well
+
+### Detailed design\data\securables {: .page-title}
+
+### Securables
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/securables.svg)
+
+[PNG](securables.png) | [SVG](securables.svg)
+
+
+#### Definition
+
+### Detailed design\data\subscription {: .page-title}
+
+### Subscription
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/subscription.svg)
+
+[PNG](subscription.png) | [SVG](subscription.svg)
+
+
+#### Definition
+
+### Detailed design\data\topic {: .page-title}
+
+### User Defined Topics
+
+#### ER Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/detailed-design/data/topic.svg)
+
+[PNG](topic.png) | [SVG](topic.svg)
+
+#### Definition
+
+Very often adhoc information stores to be added to a DataStore
+
+This design allows for diverse data needs
+
+
+#### How to enter data
+
+- Add a 'type of topic'
+- Add a 'type of attribute' for each attribute a topic has
+- If the topic has relationships Add a 'type of relationship'
+    - it could describe a relationship to another topic
+    - it could be a parent child relationship for a single topic
+    - it could describe a relationship to an item in another system
+- Assign a User (subject matter expert) to each of these types
+    - someone who can explain why the topic, attribute or relationship needs to exist
+    - reason could also be captured as a topic with attributes & relationship etc.
+- Enter data into the Topic, Attribute & Relationship tables
+
+#### How to query data
+
+```SQL
+
+-- This is (pseudo-code)
+DECLARE @topic_type_id int
+SET @topic_type_id = 1 -- whatever you are after
+
+SELECT *
+(
+    SELECT a.type_of_attribute as t, a.Value as v
+    FROM [attributes] a
+        INNER JOIN [topic] tp
+            ON tp.id = a.topic
+            AND tp.type_of_topic IS @topic_type_id
+) src
+PIVOT
+(
+    MAX(v)
+    FOR attrs in ([1], [2], [3], ... )
+)
+```
+
+# Supplementary {: .page-title}
+
+
+## Supplementary\deployment {: .page-title}
+
+### deployment
+
+#### Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/supplementary/deployment.svg)
+
+[PNG](deployment.png) | [SVG](deployment.svg)
+
+
+## Supplementary\enterprise {: .page-title}
+
+### enterprise
+
+
+#### Diagram
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/supplementary/enterprise.svg)
+
+[PNG](enterprise.png) | [SVG](enterprise.svg)
+
+
+## Supplementary\markdown examples {: .page-title}
+
+hero: Markdown examples hero
+title: Markdown examples
+description: Nullam urna elit, malesuada eget finibus ut, ac tortor.
+
+### Markdown examples
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.
+
+
+#### Footnote Example
+
+Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit.[^2]
+
+
+
+#### Note Example
+
+[Admonition](https://squidfunk.github.io/mkdocs-material/extensions/admonition/)
+
+
+!!! note "Phasellus posuere in sem ut cursus"
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! info
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! tip
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! success
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! question
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! failure
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! danger
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! bug
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! example
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! quote
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+
+!!! warning
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+#### Code Highlight
+
+``` C#
+public static void Send(
+    Socket socket, byte[] buffer, int offset, int size, int timeout) {
+  int startTickCount = Environment.TickCount;
+  int sent = 0;
+  do {
+    if (Environment.TickCount > startTickCount + timeout)
+      throw new Exception("Timeout.");
+    try {
+      sent += socket.Send(buffer, offset + sent,
+        size - sent, SocketFlags.None);
+    } catch (SocketException ex) {
+      if (ex.SocketErrorCode == SocketError.WouldBlock ||
+          ex.SocketErrorCode == SocketError.IOPending ||
+          ex.SocketErrorCode == SocketError.NoBufferSpaceAvailable) {
+        /* Socket buffer is probably full, wait and try again */
+        Thread.Sleep(30);
+      } else {
+        throw ex;
+      }
+    }
+  } while (sent < size);
+}
+
+```
+
+#### UML
+
+This will work soon I promise
+
+```plantuml
+@startuml
+  Alice -> Bob: Authentication Request
+  Bob --> Alice: Authentication Response
+
+  Alice -> Bob: Another authentication Request
+  Alice <-- Bob: another authentication Response
+@enduml
+```
+
+
+#### Random Links
+
+- [iOS USB](http://thecodewash.blogspot.com.au/2017/05/communicating-with-your-ios-app-over.html)
+
+#### Footnotes
+
+[^1]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+
+[^2]:
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+## Supplementary\project timeline overview {: .page-title}
+
+### Project Timeline Overview
+
+#### Document Conversion
+
+![diagram](C:/Users/apgiles/DFC/Architecture/src/content/site/supplementary/project-timeline-overview.svg)
+
+[Design](../architecture/containers/document-conversion) | [PNG](project-timeline-overview.png) | [SVG](project-timeline-overview.svg)
+
+## Tools {: .page-title}
+
+
+### Supplementary\tools\links {: .page-title}
+
+### Links
+
+(https://github.com/deadbok/py-puml-tools)
