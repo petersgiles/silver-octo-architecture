@@ -24,10 +24,7 @@ Table(app, "app\n(available applications)") {
 Table(id_source, "identity source\n(where is\nthis identity\nfrom)") {
 }
 
-Table(role, "role\n(operations and features)") {
-}
-
-Table(feature, "feature\n(group of operations)") {
+Table(role, "role\n(operations and subroles)") {
 }
 
 Table(operation, "operation\n(an atomic act)") {
@@ -45,14 +42,14 @@ identity "1" .. "0..*" profile
 identity "1" .. "1..*" id_source 
 
 app "1" .. "0..*" role 
-app "1" .. "0..*" feature 
+
 app "1" .. "0..*" operation 
 app "1" .. "0..*" artifact
 
 profile  "1" .. "1" app 
 
 profile "1" .. "0..*" role 
-profile "1" .. "0..*" feature 
+
 profile "1" .. "0..*" operation 
 profile "1" .. "0..*" artifact
 
@@ -60,9 +57,8 @@ personalisation "1" .. "0..1" profile
 personalisation "1" .. "0..1" app 
 
 role "1" --> "1" role  
-role "1" <-- "0..*" feature 
 role "1" .. "0..*" operation 
 
-feature "1" .. "0..*" operation 
+
 
 @enduml
