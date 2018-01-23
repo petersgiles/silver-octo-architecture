@@ -15,6 +15,7 @@ Table(user, "user") {
 
 Table(topic, "topic") {
     primary_key(id)  number
+    not_null(caption) string
     not_null(type_of_topic)  number
 }
 
