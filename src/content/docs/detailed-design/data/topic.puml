@@ -9,7 +9,7 @@ title ERD : Topic
 
 ' entities
 
-Table(user, "user") {
+Table(topic_owner, "topic_owner") {
     primary_key(id)  number
 }
 
@@ -75,9 +75,9 @@ relationship "*".."1" type_of_relationship :  "Is a"
 relationship "1" .. "1" topic :  "Relationship 1"
 relationship "1" .. "1" topic :  "Relationship 2"
 
-user "1".."*" type_of_topic : "Owns"
-user "1".."*" type_of_relationship : "Owns"
-user "1".."*" type_of_attribute : "Owns"
-user "1".."*" display_hint : "Owns"
+topic_owner "1".."*" type_of_topic : "Owns"
+topic_owner "1".."*" type_of_relationship : "Owns"
+topic_owner "1".."*" type_of_attribute : "Owns"
+topic_owner "1".."*" display_hint : "Owns"
 
 @enduml
