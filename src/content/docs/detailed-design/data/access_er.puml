@@ -59,7 +59,7 @@ profile "1" .. "0..*" artifact
 personalisation "1" .. "0..1" profile
 personalisation "1" .. "0..1" app 
 
-
+role "1" --> "1" role  
 role "1" <-- "0..*" feature 
 role "1" .. "0..*" operation 
 
