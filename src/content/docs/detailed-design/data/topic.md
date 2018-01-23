@@ -31,6 +31,7 @@ This design allows for diverse data needs
 ```SQL 
 
 
+
 DELETE [TopicTypes]
 DELETE [ListAttributeTypes]
 DELETE [ListAttributes]
@@ -97,18 +98,20 @@ INSERT INTO [ListAttributes]([Active],[LastUpdated] ,[TopicId], [ListAttributeTy
  UNION SELECT 1, GETDATE(), 5, 3, convert(varchar(10),getdate(),103)
 
 
+ DECLARE @TopicTypeId AS int
+  SET @TopicTypeId  = 2
+
 SELECT * from [ListAttributes]
 
 -- Regular Pivot with Named Columns
 SELECT * from (
-	SELECT tpty.Caption as topic, a.[Caption] as col, la.Value as v
+	SELECT la.TopicId as topic, a.[Caption] as col, la.Value as v
 	FROM ListAttributeTypes a
 			INNER JOIN ListAttributes la
 				ON a.Id = la.ListAttributeTypeId
 			INNER JOIN Topics tp
-				ON tp.id = la.TopicId
-			INNER JOIN TopicTypes tpty
-				ON tp.TopicTypeId = tpty.Id
+				ON tp.TopicTypeId = @TopicTypeId
+
 ) src
 PIVOT (  MAX(v) FOR col in ([Caption], [Description], [DateTime]) )
 AS pvt
@@ -125,20 +128,19 @@ FROM (SELECT DISTINCT [Caption] FROM ListAttributeTypes) AS Cols
 --Prepare the PIVOT query using the dynamic 
 SET @DynamicPivotQuery = 
   N'SELECT * from (
-	SELECT tpty.Caption as topic, a.[Caption] as col, la.Value as v
+		SELECT la.TopicId as topic, a.[Caption] as col, la.Value as v
 	FROM ListAttributeTypes a
 			INNER JOIN ListAttributes la
 				ON a.Id = la.ListAttributeTypeId
 			INNER JOIN Topics tp
-				ON tp.id = la.TopicId
-			INNER JOIN TopicTypes tpty
-				ON tp.TopicTypeId = tpty.Id
+				ON tp.TopicTypeId = ' + convert(varchar(2), @TopicTypeId)  + '
 	) src
 	PIVOT (  MAX(v) FOR col in (' + @ColumnName + ') )
 	AS pvt
 	'
 --Execute the Dynamic Pivot Query
 EXEC sp_executesql @DynamicPivotQuery
+
 
 
 ```
