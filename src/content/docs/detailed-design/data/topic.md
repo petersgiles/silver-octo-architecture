@@ -31,11 +31,75 @@ This design allows for diverse data needs
 ```SQL 
 
 
-select * from ListAttributeTypes
-select * from TopicTypes
-select * from Topics
-select * from ListAttributes
+DELETE [TopicTypes]
+DELETE [ListAttributeTypes]
+DELETE [ListAttributes]
+DELETE [Topics]
+DELETE [Users]
 
+DBCC CHECKIDENT ('TopicTypes', RESEED, 0)
+DBCC CHECKIDENT ('ListAttributeTypes', RESEED, 0)
+DBCC CHECKIDENT ('ListAttributes', RESEED, 0)
+DBCC CHECKIDENT ('Topics', RESEED, 0)
+DBCC CHECKIDENT ('Users', RESEED, 0)
+
+INSERT INTO [dbo].[Users] ([Description])
+ /* */ SELECT 'Pete'
+ UNION SELECT 'Greg'
+
+SELECT * from [Users]
+
+
+INSERT INTO [ListAttributeTypes]([Caption],[UserId])
+ /* */ SELECT 'Caption', 1
+ UNION SELECT 'Description', 1
+ UNION SELECT 'DateTime', 1
+ 
+SELECT * from [ListAttributeTypes]
+
+
+INSERT INTO [TopicTypes] ([Caption], [UserId])
+  /* */ SELECT 'Cheese', 1
+  UNION SELECT 'Animal', 1
+  
+SELECT * from [TopicTypes]
+
+
+
+INSERT INTO [Topics] ([TopicTypeId]) Values (1) -- for Cheddar
+INSERT INTO [Topics] ([TopicTypeId]) Values (1) -- for Gouda
+INSERT INTO [Topics] ([TopicTypeId]) Values (2) -- for Persian
+INSERT INTO [Topics] ([TopicTypeId]) Values (2) -- for Pomerainian
+INSERT INTO [Topics] ([TopicTypeId]) Values (2) -- for Dumbo
+
+SELECT * from [Topics]
+
+
+INSERT INTO [ListAttributes]([Active],[LastUpdated] ,[TopicId], [ListAttributeTypeId] ,[Value])
+ /* */ SELECT 1, GETDATE(), 1, 1, 'Cheddar'
+ UNION SELECT 1, GETDATE(), 1, 2, 'A Tasty Cheese'
+ UNION SELECT 1, GETDATE(), 1, 3, convert(varchar(10),getdate(),103)
+ /* */
+ UNION SELECT 1, GETDATE(), 2, 1, 'Gouda'
+ UNION SELECT 1, GETDATE(), 2, 2, 'A Waxy Cheese'
+ UNION SELECT 1, GETDATE(), 2, 3, convert(varchar(10),getdate(),103)
+  /* */
+ UNION SELECT 1, GETDATE(), 3, 1, 'Persian'
+ UNION SELECT 1, GETDATE(), 3, 2, 'A Meowy thing'
+ UNION SELECT 1, GETDATE(), 3, 3, convert(varchar(10),getdate(),103)
+  /* */
+ UNION SELECT 1, GETDATE(), 4, 1, 'Pomerainian'
+ UNION SELECT 1, GETDATE(), 4, 2, 'A Woofy thing'
+ UNION SELECT 1, GETDATE(), 4, 3, convert(varchar(10),getdate(),103)
+  /* */
+ UNION SELECT 1, GETDATE(), 5, 1, 'Dumbo'
+ UNION SELECT 1, GETDATE(), 5, 2, 'A Heavy Thing'
+ UNION SELECT 1, GETDATE(), 5, 3, convert(varchar(10),getdate(),103)
+
+
+SELECT * from [ListAttributes]
+
+-- Regular Pivot with Named Columns
 SELECT * from (
 	SELECT tpty.Caption as topic, a.[Caption] as col, la.Value as v
 	FROM ListAttributeTypes a
@@ -48,11 +112,8 @@ SELECT * from (
 ) src
 PIVOT (  MAX(v) FOR col in ([Caption], [Description], [DateTime]) )
 AS pvt
-```
-With Dynamic Columns
 
-```SQL
-
+-- Dynamic Pivot with Columns Derived
 DECLARE @DynamicPivotQuery AS NVARCHAR(MAX)
 DECLARE @ColumnName AS NVARCHAR(MAX)
  
@@ -78,5 +139,6 @@ SET @DynamicPivotQuery =
 	'
 --Execute the Dynamic Pivot Query
 EXEC sp_executesql @DynamicPivotQuery
+
 
 ```
