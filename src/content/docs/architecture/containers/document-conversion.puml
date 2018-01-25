@@ -13,7 +13,7 @@ folder "App Server" as APP {
 
     !include ../../includes/common.iuml!svc_esb
 
-    component "Brief Event Publisher" <<service>> as BEP 
+    component "Brief Event Publisher" <<service>> as BEP
 
     !include ../../includes/common.iuml!svc_event_publisher
     !include ../../includes/common.iuml!svc_brief_converter
@@ -23,13 +23,13 @@ folder "App Server" as APP {
     [Document Conversion] as DC
     database "Shared Store" as SQL
 
-    
+
 }
 
 
 
 
-SVC_EVENT_BRIDGE ----> SVC_ESB 
+SVC_EVENT_BRIDGE ----> SVC_ESB
 
 SVC_ESB <-up-> SVC_EVENT_PUBLISHER
 SVC_ESB <-up-> BEP
@@ -58,10 +58,10 @@ partition "Event Bridge" {
     --> "Item\nUpdating" as EB1
 
     === S1 === --> "Item\nUpdated" as EB2
- 
+
     A1 --> "Item\nAdded" as EB3
 
-    EB1 --> === S2 === 
+    EB1 --> === S2 ===
     EB2 --> === S2 ===
 
 }
@@ -87,8 +87,8 @@ partition "Brief Event Publisher" {
 
 
 }
-note right  
-    ONLY Published if incomming messages 
+note right
+    ONLY Published if incomming messages
     have type Brief
 end note
 
@@ -100,8 +100,8 @@ partition "DSuite Document Item Metadata Management" {
 }
 
 
-partition "Sharepoint Document Conversion Orchestrator" {
-    BEP1 --> "Convert\n Sharepoint Hosted Document" as BDC1
+partition "Brief Document Converter" {
+    BEP1 --> "Convert\n Sharepoint Hosted Brief Document" as BDC1
 }
 
 partition "DSuite  Document Converter" {

@@ -11,7 +11,11 @@
 [PNG](document-conversion_001.png) | [SVG](document-conversion_001.svg)
 
 
-### Sharepoint Document Conversion Orchestrator
+### Brief Document Converter
+
+!!! note
+    This only handles Briefs. It will use a service account that has permissions to write to Briefs site. If additional types are required in future, then this will probably moved to a generic instance based endpoints that operate under a specific account
+    for each site.
 
 - Grabs document from sharepoint source
 - Send it to Dsuite document Converter
