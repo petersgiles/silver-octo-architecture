@@ -1,4 +1,4 @@
-# User
+# User Dashboard
 
 ## ER Diagram
 

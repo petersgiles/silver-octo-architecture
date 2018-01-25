@@ -100,12 +100,11 @@ partition "DSuite Document Item Metadata Management" {
 }
 
 
-
-partition "DSuite Document Converter" {
-    BEP1 --> "Convert\nBrief Document" as BDC1
+partition "Sharepoint Document Conversion Orchestrator" {
+    BEP1 --> "Convert\n Sharepoint Hosted Document" as BDC1
 }
 
-partition "Generic Document Converter" {
+partition "DSuite  Document Converter" {
     BDC1 --> "Convert\n Document" as GDC1
     GDC1 --> BDC1
 }
