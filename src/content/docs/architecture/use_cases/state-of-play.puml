@@ -1,9 +1,0 @@
-@startuml
-left to right direction
-!include ../../includes/theme.iuml
-!include ../../includes/common.iuml!act_editor
-
-ACT_EDITOR .. (Review\nCurrent Status of\nCollaborations) : Uses
-
-
-@enduml

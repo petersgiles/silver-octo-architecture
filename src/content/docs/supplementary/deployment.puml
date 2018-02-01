@@ -1,6 +1,0 @@
-@startuml
-!include ../includes/theme.iuml
-title Deployment
-
-
-@enduml

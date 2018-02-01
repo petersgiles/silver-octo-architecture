@@ -2,9 +2,50 @@
 
 ## ER Diagram
 
-![diagram](notification.svg)
 
-[PNG](notification.png) | [SVG](notification.svg)
+```plantuml format="svg" classes="uml myDiagram"
+@startuml
+!include /docs/includes/theme.iuml
+!include /docs/includes/typescript.iuml
+
+hide methods
+hide stereotypes
+
+title Notification Subscription Management
+
+' entities
+Table(subscription, "Subscription") {
+}
+
+Table(subscription_map, "Subscription Topic") {
+}
+
+Table(subscription_event, "Event") {
+}
+
+Table(message_templates, "Message Template") {
+}
+
+Table(user, "Subscriber <<person>> ") {
+}
+
+Table(notification_channel, "Notification Channel") {
+}
+
+
+' relationships
+
+user }-left-{ subscription
+user }-right-{ notification_channel
+
+subscription *-- subscription_map
+subscription *-- subscription_event
+
+notification_channel --* message_templates 
+subscription_event --* message_templates 
+
+@enduml
+```
 
 ## Definition
 

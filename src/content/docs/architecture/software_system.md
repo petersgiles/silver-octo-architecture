@@ -4,9 +4,57 @@ description: C4 Software System.
 
 # Software System
 
-![diagram](software_system.svg)
 
-[PNG](software_system.png) | [SVG](software_system.svg)
+```plantuml format="svg" classes="uml myDiagram"
+@startuml
+
+title System Context diagram
+
+folder "Corporate Domain" as DOMAIN {
+
+!include ../includes/common.iuml!sys_dsuite
+!include ../includes/theme.iuml
+!include ../includes/common.iuml!pla_sql
+!include ../includes/common.iuml!pla_sp
+!include ../includes/common.iuml!pla_couch
+!include ../includes/common.iuml!pla_web
+!include ../includes/common.iuml!svc_mi
+!include ../includes/common.iuml!svc_esb
+
+!include ../includes/common.iuml!act_user
+
+node "Approved Device" as DEVICE {
+    !include ../includes/common.iuml!app_ms_office
+    !include ../includes/common.iuml!app_browser
+    !include ../includes/common.iuml!app_email
+}
+note "Department issued\nlaptops and iPads" as N1
+
+DEVICE .. N1
+DEVICE .up. SVC_MI 
+ACT_USER .. DEVICE 
+
+APP_MS_OFFICE ... PLA_SP
+APP_BROWSER ... PLA_WEB
+
+SYS_DSUITE -up- PLA_SP 
+SYS_DSUITE -up- PLA_WEB 
+SYS_DSUITE -left- PLA_COUCH 
+SYS_DSUITE -down- PLA_SQL 
+SYS_DSUITE -down- SVC_ESB 
+
+PLA_SP -- PLA_SQL  
+
+SVC_ESB -up- PLA_COUCH 
+SVC_ESB -- PLA_SP 
+SVC_ESB -left- PLA_SQL 
+
+}
+
+
+
+@enduml
+```
 
 
 This is a zoomed out view showing the big picture of the system. Here we are focusing on people and software systems rather than technologies, protocols and other low-level details.

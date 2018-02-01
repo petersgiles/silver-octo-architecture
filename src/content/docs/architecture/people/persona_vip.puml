@@ -1,9 +1,0 @@
-@startuml
-left to right direction
-!include ../../includes/theme.iuml
-!include ../../includes/common.iuml!act_reader
-!include ../../includes/common.iuml!act_vip
-
-ACT_VIP --|> ACT_READER  : Is a
-
-@enduml

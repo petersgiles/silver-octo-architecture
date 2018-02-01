@@ -2,7 +2,11 @@
 
 ## Diagram
 
-![diagram](deployment.svg)
+```plantuml format="svg" classes="uml myDiagram"
+@startuml
+!include /docs/includes/theme.iuml
+title Deployment
 
-[PNG](deployment.png) | [SVG](deployment.svg)
 
+@enduml
+```

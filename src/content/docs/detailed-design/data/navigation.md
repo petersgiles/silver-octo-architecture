@@ -2,32 +2,68 @@
 
 ## ER Diagram
 
-![diagram](navigation_er.svg)
 
-[PNG](navigation_er.png) | [SVG](navigation_er.svg)
-
-
-
-
-## Index view
-Within a pack 
-
-![diagram](navigation_ui_index.svg)
-
-[PNG](navigation_ui_index.png) | [SVG](navigation_ui_index.svg)
-
----
-
-## Deck View
-
-![diagram](navigation_ui_deck.svg)
-
-[PNG](navigation_ui_deck.png) | [SVG](navigation_ui_deck.svg)
-
----
+```plantuml format="svg" classes="uml myDiagram"
+@startuml
+!include /docs/includes/theme.iuml
+!include /docs/includes/typescript.iuml
 
 
+hide methods
+hide stereotypes
+
+' entities
+
+Table(jurisdiction, "jurisdiction\n(Department or Business Entity)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[32]
+}
+
+Table(group, "group\n(A collection of briefing material\nowned by a business unit)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[32]
+}
+
+Table(pack, "pack\n(A collection of briefing material\nwith a unified purpose)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[32]
+}
+
+
+Table(folder, "folder\n(Building block for pack navigation)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[32]
+}
+
+Table(artifact , "artifact \n(an item that can be viewed\na brief, chat, decision etc)") {
+    primary_key(id) INTEGER
+    not_null(caption) VARCHAR[32]
+}
+
+
+Table(ext_key_sp, "sharepoint key mapping") {
+    primary_key(web_url) VARCHAR[32]
+    primary_key(list_id) GUID
+    primary_key(item_id) INTEGER
+}
+
+
+' relationships
+' one-to-one relationship
+
+' one-to-many relationship
+jurisdiction "1" --> "*" group : "A jurisdiction has one or more groups"
+group "1" --> "*" pack : "A group has one or more packs"
+pack "1" --> "*" folder : "A pack has one or more 1st level folders"
+folder "1" --> "*" folder : "A folder has many children"
+folder "1" --> "*" artifact  : "A folder may have zero to many artifact s"
+
+folder "1" ...> "0..1" ext_key_sp : "A folder may be managed in Sharepoint "
+artifact  "1" ...> "0..1" ext_key_sp : "An artifact  may be managed in Sharepoint "
+
+' many to many relationship
 
 
 
-
+@enduml
+```

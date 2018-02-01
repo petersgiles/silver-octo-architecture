@@ -3,7 +3,12 @@
 
 ## Diagram
 
-![diagram](enterprise.svg)
 
-[PNG](enterprise.png) | [SVG](enterprise.svg)
+```plantuml format="svg" classes="uml myDiagram"
+@startuml
+!include /docs/includes/theme.iuml
+title Enterprise
 
+
+@enduml
+```
