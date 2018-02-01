@@ -12,21 +12,21 @@ title System Context diagram
 
 folder "Corporate Domain" as DOMAIN {
 
-!include ../includes/common.iuml!sys_dsuite
-!include ../includes/theme.iuml
-!include ../includes/common.iuml!pla_sql
-!include ../includes/common.iuml!pla_sp
-!include ../includes/common.iuml!pla_couch
-!include ../includes/common.iuml!pla_web
-!include ../includes/common.iuml!svc_mi
-!include ../includes/common.iuml!svc_esb
+!include /docs/includes/common.iuml!sys_dsuite
+!include /docs/includes/theme.iuml
+!include /docs/includes/common.iuml!pla_sql
+!include /docs/includes/common.iuml!pla_sp
+!include /docs/includes/common.iuml!pla_couch
+!include /docs/includes/common.iuml!pla_web
+!include /docs/includes/common.iuml!svc_mi
+!include /docs/includes/common.iuml!svc_esb
 
-!include ../includes/common.iuml!act_user
+!include /docs/includes/common.iuml!act_user
 
 node "Approved Device" as DEVICE {
-    !include ../includes/common.iuml!app_ms_office
-    !include ../includes/common.iuml!app_browser
-    !include ../includes/common.iuml!app_email
+    !include /docs/includes/common.iuml!app_ms_office
+    !include /docs/includes/common.iuml!app_browser
+    !include /docs/includes/common.iuml!app_email
 }
 note "Department issued\nlaptops and iPads" as N1
 
