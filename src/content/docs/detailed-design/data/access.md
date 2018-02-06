@@ -66,7 +66,7 @@ personalisation "1" .. "0..1" app
 
 role "1" --> "1" role  
 role "1" .. "0..*" operation 
-
+role "1" .. "0..*" artifact 
 
 
 @enduml
