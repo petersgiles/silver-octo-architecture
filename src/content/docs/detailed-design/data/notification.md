@@ -6,7 +6,7 @@
 ```plantuml format="svg" classes="uml myDiagram"
 @startuml
 !include /docs/includes/theme.iuml
-!include /docs/includes/typescript.iuml
+!include /docs/includes/erd.iuml
 
 hide methods
 hide stereotypes
