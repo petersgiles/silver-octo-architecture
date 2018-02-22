@@ -1,5 +1,6 @@
 # Brief Metric
 
+Store a metric in the database and prepare relevant reports
 
 ```plantuml format="png"
 @startuml
