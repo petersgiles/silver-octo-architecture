@@ -53,6 +53,11 @@ object "Brief" as brief
 object "Attachment" as attachment
 object "Discussion" as discussion
 object "Message" as message
+object "Status" as status
+object "Recommendation" as recommed
+object "Recommendation Options" as options
+object "Recommendation Chosen Option" as action
+
 
 ' relationships
 jurisdiction "1" --> "  * " bundle 
@@ -63,6 +68,10 @@ folder "1" --> "0..  * " briefing
 briefing "1" --> "1" brief 
 briefing "1" --> "0..3" discussion  
 briefing "1" --> "0..  * " attachment 
+briefing "1" --> "0..  * " recommed 
+briefing "1" --> "0..  * " status 
+recommed "1" --> "0..  * " options 
+recommed "1" --> "0..  * " action 
 discussion "1" --> "0..  * " message  
 
 @enduml
