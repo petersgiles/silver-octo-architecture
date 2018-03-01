@@ -2,14 +2,14 @@
 
 CabNet have an Authorisaion Portal that could be whiteboxed to manage Users
 
-```plantuml format="svg" classes="uml myDiagram"
+```plantuml format="png" classes="uml myDiagram"
 @startuml
 left to right direction
 !include /docs/includes/theme.iuml
 !include /docs/includes/common.iuml!act_owner
 !include /docs/includes/common.iuml!act_admin
 
-actor "System" <<service>> as ACT_SYS
+actor "System"  as ACT_SYS
 
 (Manage\nArtifact) as (mar)
 (Manage\nOperation) as (mop)

@@ -2,36 +2,40 @@
 
 ## Terms
 
-<dl>
-  <dt>Jurisdiction</dt>
-  <dd>Department or Business Entity</dd>
-  <dd>A jurisdiction has one or more bundles</dd>
 
-  <dt>Bundle</dt>
-  <dd>A bundle has one or more packs</dd>
+### Jurisdiction
+  - Department or Business Entity e.g PM &amp; C, Queensland State Goverment or any Workplace with a Reporting Structure 
+  - A jurisdiction has one or more bundles
 
-  <dt>Folder</dt>
-  <dd>A folder has zero to many folders</dd>
-  <dd>A folder has zero to many briefings</dd>
+### Bundle
+  - A discrete set of Packs relating to a topic e.g. Parlimentary, Reports, Travel
+  - A bundle has one or more packs
 
-  <dt>Briefing</dt>
-  <dd>A briefing may have zero to one brief</dd>
-  <dd>A briefing may have zero to three discussions</dd>  
-  <dd>A briefing may have zero to many attachment</dd>  
+### Pack
+  - A particular topic  
+  - A pack has zero to many folders
 
-  <dt>Brief</dt>
-  <dd>A document managed by sharepoint</dd>  
+### Folder
+  - A folder has zero to many folders
+  - A folder has zero to many briefings
 
-  <dt>Attachment</dt>
-  <dd>A document managed by sharepoint</dd>  
+### Briefing
+  - A briefing may have zero to one brief
+  - A briefing may have zero to three discussions  
+  - A briefing may have zero to many attachment  
 
-  <dt>Discussion</dt>
-  <dd>A discussion may have zero to many messages</dd>  
+### Brief
+  - A document managed by sharepoint  
 
-  <dt>Message</dt>
-  <dd>A message is just text</dd>  
+### Attachment
+  - A document managed by sharepoint  
 
-</dl>
+### Discussion
+  - A discussion may have zero to many messages  
+
+### Message
+  - A message is just text  
+
 
 ## Logical Relationship diagram
 
@@ -51,15 +55,15 @@ object "Discussion" as discussion
 object "Message" as message
 
 ' relationships
-jurisdiction "1" --> "*" bundle 
-bundle "1" --> "*" pack 
-pack "1" --> "*" folder 
-folder "1" --> "0..*" folder 
-folder "1" --> "0..*" briefing  
+jurisdiction "1" --> "  * " bundle 
+bundle "1" --> "  * " pack 
+pack "1" --> "  * " folder 
+folder "1" --> "0..  * " folder 
+folder "1" --> "0..  * " briefing  
 briefing "1" --> "1" brief 
 briefing "1" --> "0..3" discussion  
-briefing "1" --> "0..*" attachment 
-discussion "1" --> "0..*" message  
+briefing "1" --> "0..  * " attachment 
+discussion "1" --> "0..  * " message  
 
 @enduml
 ```
