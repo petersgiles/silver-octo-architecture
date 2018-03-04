@@ -33,8 +33,8 @@
 ### Discussion
   - A discussion may have zero to many messages  
 
-### Message
-  - A message is just text  
+### Comment
+  - Like a Post on a social media site  
 
 
 ## Logical Relationship diagram
@@ -52,7 +52,7 @@ object "Briefing" as briefing
 object "Brief" as brief
 object "Attachment" as attachment
 object "Discussion" as discussion
-object "Message" as message
+object "Comment" as comment
 object "Status" as status
 object "Recommendation" as recommed
 object "Recommendation Options" as options
@@ -72,7 +72,7 @@ briefing "1" --> "0..  * " recommed
 briefing "1" --> "0..  * " status 
 recommed "1" --> "0..  * " options 
 recommed "1" --> "0..  * " action 
-discussion "1" --> "0..  * " message  
+discussion "1" --> "0..  * " comment  
 
 @enduml
 ```
