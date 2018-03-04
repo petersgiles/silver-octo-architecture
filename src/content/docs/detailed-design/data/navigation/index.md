@@ -19,15 +19,15 @@
   - A folder has zero to many folders
   - A folder has zero to many briefings
 
-### Briefing
-  - A briefing may have zero to one brief
-  - A briefing may have zero to three discussions  
-  - A briefing may have zero to many attachment  
-
 ### Brief
+  - A brief may have zero to one brief
+  - A brief may have zero to three discussions  
+  - A brief may have zero to many attachment  
+
+### Primary Document (Brief)
   - A document managed by sharepoint  
 
-### Attachment
+### Ancillary Documents {Attachment)
   - A document managed by sharepoint  
 
 ### Discussion
