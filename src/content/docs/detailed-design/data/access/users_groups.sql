@@ -1,11 +1,3 @@
-# SQL
-
-How to do access and deny with SQL data
-
-### Example data structure
-
-```SQL
-
 
 USE [AccessTest]
 GO
@@ -209,11 +201,6 @@ SELECT * FROM [UserGroups]
 SELECT * FROM [Container]
 SELECT * FROM [AccessControl]
 */
-```
-
-## Getting a tree of children
-
-```SQL
 
 DECLARE @container int;
 SET @container = 13;
@@ -235,15 +222,6 @@ FROM FullTree_CTE cte
 WHERE cte.Id = @container
 
 
-
-```
-
-Getting a tree of parents
-
-```SQL 
-
-DECLARE @container int;
-SET @container = 13;
 
 ;WITH
 	AncestorFullTree_CTE
@@ -270,11 +248,6 @@ FROM [UserGroups] ug
 		AND ac.ContainerId in (SELECT Id
 		FROM AncestorFullTree_CTE cte)
 
-```
-
-## Getting keys by user
-
-```SQL
 
 DECLARE @user varchar(30);
 SET @user = 'Simon';
@@ -330,5 +303,3 @@ WHERE Id NOT IN (SELECT Id
 from Deny_CTE)
 
 GO
-
-```
