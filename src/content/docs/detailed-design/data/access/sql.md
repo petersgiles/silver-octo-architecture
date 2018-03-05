@@ -213,6 +213,8 @@ SELECT * FROM [AccessControl]
 
 ## Getting a tree of children
 
+Using Container Id a set of child containers can be derived with this SQL Code
+
 ```SQL
 
 DECLARE @container int;
@@ -224,7 +226,8 @@ SET @container = 13;
 	(
 		SELECT Id, ParentId, [Name]
 			FROM Container
-			WHERE ParentId IS NULL
+			-- WHERE ParentId IS NULL
+			WHERE ParentId = @container
 		UNION ALL
 			SELECT cc.Id, cc.ParentId, cc.[Name]
 			FROM Container cc
@@ -234,11 +237,11 @@ SELECT *
 FROM FullTree_CTE cte
 WHERE cte.Id = @container
 
-
-
 ```
 
-Getting a tree of parents
+## Getting a tree of parents
+
+Using Container Id a set of parent containers can be derived with this SQL Code
 
 ```SQL 
 
@@ -271,8 +274,10 @@ FROM [UserGroups] ug
 		FROM AncestorFullTree_CTE cte)
 
 ```
-
 ## Getting keys by user
+
+Using a user name a set of child allowed containers can be derived with this SQL Code
+
 
 ```SQL
 
