@@ -54,25 +54,29 @@ object "Attachment" as attachment
 object "Discussion" as discussion
 object "Comment" as comment
 object "Status" as status
-object "Recommendation" as recommed
+object "Recommended Direction" as recommed
+object "Recommendation" as recommendation
 object "Recommendation Options" as options
-object "Recommendation Chosen Option" as action
+object "Recommendation Response" as action
 
 
 ' relationships
-jurisdiction "1" --> "  * " bundle 
-bundle "1" --> "  * " pack 
-pack "1" --> "  * " folder 
-folder "1" --> "0..  * " folder 
-folder "1" --> "0..  * " briefing  
+jurisdiction "1" --> "*" bundle 
+bundle "1" --> "*" pack 
+pack "1" --> "*" folder 
+folder "1" --> "0..*" folder 
+folder "1" --> "0..*" briefing  
 briefing "1" --> "1" brief 
 briefing "1" --> "0..3" discussion  
-briefing "1" --> "0..  * " attachment 
-briefing "1" --> "0..  * " recommed 
-briefing "1" --> "0..  * " status 
-recommed "1" --> "0..  * " options 
-recommed "1" --> "0..  * " action 
-discussion "1" --> "0..  * " comment  
+briefing "1" --> "0..*" attachment 
+briefing "1" --> "0..*" status 
+briefing "1" --> "0..*" recommed 
+recommed "1" --> "1..*" options 
+recommed "1" --> "0..1" recommendation 
+recommed "1" --> "0..*" action 
+options "1" --> "0..*" action 
+
+discussion "1" --> "0..*" comment  
 
 @enduml
 ```
