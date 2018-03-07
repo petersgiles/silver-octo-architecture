@@ -1,4 +1,4 @@
-# What is DSuite
+# DSuite
 
 DSuite is a collection of tools designed to provide an Executive Decision Information Management System (EDIM).
 

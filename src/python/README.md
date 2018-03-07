@@ -14,3 +14,6 @@ I am using them in school.*
    The original was rewritten, extended, and documentet by [@RockyRoad29](https://github.com/RockyRoad29).
    Repository: [RockyRoad29/py-puml-tools](https://github.com/RockyRoad29/py-puml-tools)
 
+
+
+python -m site  --user-site
