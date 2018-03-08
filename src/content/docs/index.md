@@ -1,5 +1,7 @@
 # Digital First Manifesto
 
+:)
+
 ## General principles
 
 Write in our heads in pencil, love thinking, love learning, be very comfortable with being wrong and turn that into a learning experience – that is, be very open-minded.
