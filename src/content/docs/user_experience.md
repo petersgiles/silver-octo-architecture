@@ -1,7 +1,7 @@
 # User Experience
 
 
-[Don't Make Me Think: A Common Sense Approach to Web Usability](/supplementary/dont_make_me_think.pdf)
+[Don't Make Me Think: A Common Sense Approach to Web Usability](/assets/dont_make_me_think.pdf)
 
 ## Usability Means…
 Usability means making sure something works well, and that a person of
