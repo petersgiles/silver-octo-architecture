@@ -1,6 +1,6 @@
 # Digital First Manifesto
 
-:)
+O_o
 
 ## General principles
 
