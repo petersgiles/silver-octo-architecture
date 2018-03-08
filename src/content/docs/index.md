@@ -1,6 +1,6 @@
 # Digital First Manifesto
 
-Screaming Jets
+Auto man
 
 ## General principles
 
