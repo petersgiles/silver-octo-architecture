@@ -1,0 +1,3 @@
+# Latency is zero
+
+Latency is how much time it takes for data to move from one place to another (versus bandwidth, which is how much data can be transferred during that time). In the past, latency has deteriorated quickly when you move to WAN or internet scenarios. As more enterprises look to migrate operations to the cloud or move to a hybrid cloud structure, network latency can lead to an inability to back up data and restore it at speed in any given situation, including disaster recovery. Active Transactional Data Replication technology can now ensure transactional data can be moved to the cloud at petabyte scale with no downtime and no data loss, making it possible for on-premise and cloud environments to operate as one.

@@ -1,0 +1,3 @@
+# Bandwidth is infinite
+
+Bandwidth is the capacity of a network to transfer data. Even though network bandwidth capacity has been improving the amount of information we want to transfer, it is also increasing exponentially. But there are ways to increase bandwidth. Again data replication technology allows you to have multiple databases, meaning your system isn’t dependent on any one thing and you have more bandwidth at your disposal that can be controlled using network traffic shaping capabilities. This gives administrators the power to prioritize network traffic on the basis of source and target data centers and the ability to assign higher priority to specific files and directories during replication between data centers.

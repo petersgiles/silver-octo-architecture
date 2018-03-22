@@ -1,0 +1,3 @@
+# The Network is Reliable
+
+The first fallacy is an easy way to set yourself up for failure, as Murphy made sure there will always be things that go wrong with the network—whether it is power failure or a cut cable. However, Active Transactional Data Replication ensures that should a single server or an entire data center go offline, the information you need will still be available, as each data note is continuously synchronised without geographical constraints.

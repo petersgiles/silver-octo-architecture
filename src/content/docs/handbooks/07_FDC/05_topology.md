@@ -1,0 +1,3 @@
+# Topology doesn’t change
+
+Topology doesn’t change as long as it stays in the test lab. When applications are deployed into an organization, network topology can quickly become out of control with laptops coming and going, wireless ad hoc networks and new mobile devices. In fact, one of the biggest benefits for organizations moving to the cloud is the ability to change topology at will. As data can now be replicated across different environments with guaranteed consistency, issues around topology are no longer as relevant as they used to be. 

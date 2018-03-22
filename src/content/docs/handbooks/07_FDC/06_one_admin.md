@@ -1,0 +1,3 @@
+# There is one administrator
+
+While there is never just one administrator, given your applications are likely interacting with systems outside your administrative control, the impact of this is no longer as critical as it once was. The fact is you care about administrators only when things go awry and you need to pinpoint a problem and solve it. Even then with the same data available across multiple locations, organizations can now carry on with their work with no risk of downtime.

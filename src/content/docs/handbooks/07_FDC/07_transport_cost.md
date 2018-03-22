@@ -1,0 +1,3 @@
+# Transport cost is zero
+
+While nothing in life is free, the costs of setting and running a WAN network are considerably cheaper than they used to be. Cloud computing means you can purchase what you need per transaction, gigabyte or an hour. Active-active architecture means all servers and clusters are fully readable and writeable, always in sync and recover automatically from each other after planned or unplanned downtime. This means there are no passive read-only backup servers and clusters, so organizations can now use 100 percent of their hardware without wasting budget on idle servers.
