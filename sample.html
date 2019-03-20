@@ -1,0 +1,27 @@
+<h1>Manage Document</h1>
+<pre><code class="language-plantuml">@startuml
+left to right direction
+
+(Add\nBrief) as (add)
+(Edit\nBrief) as (edit)
+(Archive\nBrief) as (archive)
+(Restore\nBrief) as (restore)
+
+(Choose\nTemplate) as (template)
+(Open in\nMS Word) as (word)
+
+ACT_EDITOR .. (add)
+(add) --&gt; (template)
+(template) --&gt; (word)
+
+ACT_EDITOR .. (edit)
+(edit) --&gt; (word)
+
+ACT_EDITOR .. (archive)
+(archive) --&gt; (Mark Brief\nand Supporting Items\nas Archived)
+
+ACT_EDITOR .. (restore)
+(restore) --&gt; (Remove\nArchive Marking\nfrom Brief\nand Supporting Items)
+
+@enduml
+</code></pre>
