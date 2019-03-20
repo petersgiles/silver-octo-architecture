@@ -30,3 +30,7 @@ In a nutshell add these things to your `settings.json`.
 ## Compiling markdown
 
 - [https://code.visualstudio.com/Docs/languages/markdown#_using-your-own-css](https://code.visualstudio.com/Docs/languages/markdown#_using-your-own-css)
+
+## plantuml
+
+- https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/
