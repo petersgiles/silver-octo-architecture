@@ -3,7 +3,7 @@
 
 ```plantuml
 @startuml
-!include /docs/includes/theme.iuml
+
 
 
 @enduml

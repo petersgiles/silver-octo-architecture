@@ -4,24 +4,24 @@
 
 ```plantuml
 @startuml
-!include /docs/includes/theme.iuml
+
 
 title Document Conversion System
 
 folder "Sharepoint" as SP {
     [Document Store] as doclib
     [Html Store] as htmllib
-    !include /docs/includes/common.iuml!svc_event_bridge
+
 }
 
 folder "App Server" as APP {
 
-    !include /docs/includes/common.iuml!svc_esb
+    '!include /docs/includes/common.iuml!svc_esb
 
     component "Brief Event Publisher" <<service>> as BEP
 
-    !include /docs/includes/common.iuml!svc_event_publisher
-    !include /docs/includes/common.iuml!svc_brief_converter
+    '!include /docs/includes/common.iuml!svc_event_publisher
+    '!include /docs/includes/common.iuml!svc_brief_converter
 
     [DSuite Document Conversion] as ADC
     [DSuite Document Item Metadata Management] as DIMM

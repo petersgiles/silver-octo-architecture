@@ -2,7 +2,7 @@
 
 ```plantuml
 @startuml
-!include /docs/includes/theme.iuml
+
 
 title Event Publisher Activity
 

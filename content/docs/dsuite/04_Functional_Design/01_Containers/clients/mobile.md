@@ -4,7 +4,7 @@ This app is Offline Capable
 
 ```plantuml
 @startuml
-!include /docs/includes/theme.iuml
+
 
 title Mobile
 

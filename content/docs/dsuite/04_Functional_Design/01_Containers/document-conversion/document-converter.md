@@ -11,7 +11,7 @@
 
 ```plantuml
 @startuml
-!include /docs/includes/theme.iuml
+
 
 title Brief Document Converter
 
