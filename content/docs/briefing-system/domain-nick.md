@@ -45,11 +45,9 @@ location .. electorate;
 @enduml;
 )
 
-
-
 ## Parliament
 
-The House of Representatives has a maximum *term* of three years, but may be dissolved, in effect by the *government*, at any time. In this system the definition of parliament uses on House of Representatives terms  and describes the term of a government including the shutdown period prior to an election. 
+The House of Representatives has a maximum *term* of three years, but may be dissolved, in effect by the *government*, at any time. In this system the definition of parliament uses on House of Representatives terms  and describes the term of a government including the shutdown period prior to an election.
 
 ## Budget
 
@@ -83,3 +81,6 @@ A [portfolio](https://www.directory.gov.au/portfolios) is a minister's area of r
 
 [Government departments and agencies](https://www.directory.gov.au/departments-and-agencies) are grouped into 18 principal departments, each led by a secretary, director-general, or similarly-titled executive officer and comprising a number of portfolios covering specific policy areas across the department and allocated statutory authorities, trading enterprises, boards, councils and other public bodies. Agencies have varying levels of operational autonomy, and deliver one or more of frontline public services, administrative functions and law enforcement. Some are structured as for-profit corporations. Where there are multiple portfolios within a department, the Secretary may be accountable to a number of ministers.
 
+## Commitment (Policy)
+
+During the pre-parliament period a commitment may take the form of announceables (A positive-sounding news item suitable for public announcement; a sound bite.) to something more substantial issued through press releases. **Political commitment** should be seen as a driving force that stimulates the management cycle and would be converted into **policy** once a party is elected. Typically these are recorded as **red** or **blue** and are related to briefs.
