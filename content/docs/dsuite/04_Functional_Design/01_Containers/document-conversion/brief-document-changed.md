@@ -1,26 +1,15 @@
-# Brief Document Changed Activity
+# Brief Document SharePoint Activity
 
 
-```plantuml
-@startuml
 
-title Brief Document Changed Activity
+![Data structure](https://g.gravizo.com/svg?
+@startuml;
+[*] --> EventReceiver;
+state EventReceiver {;
+[*] -> Publish;
+Publish: Document Changed;
+Publish -> [*];
+};
+@enduml;
+)
 
-start
-:Publish\ Document\nChanged;
-
-partition "Brief Event Publisher" {
-    if (Is a Brief Event) then
-        -[#green]->
-        :Publish\nBrief Document\nChanged;
-    else
-        stop
-    endif
-}
-
-stop
-
-@enduml
-
-
-```

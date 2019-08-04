@@ -32,7 +32,7 @@
 
   - A document managed by sharepoint  
 
-### Ancillary Documents {Attachment)
+### Ancillary Documents (Attachment)
 
   - A document managed by sharepoint  
 
