@@ -1,4 +1,4 @@
-# Nick's Domain
+# Domain
 
 ![Data structure](https://g.gravizo.com/svg?
 @startuml;
@@ -84,3 +84,4 @@ A [portfolio](https://www.directory.gov.au/portfolios) is a minister's area of r
 ## Commitment (Policy)
 
 During the pre-parliament period a commitment may take the form of announceables (A positive-sounding news item suitable for public announcement; a sound bite.) to something more substantial issued through press releases. **Political commitment** should be seen as a driving force that stimulates the management cycle and would be converted into **policy** once a party is elected. Typically these are recorded as **red** or **blue** and are related to briefs.
+

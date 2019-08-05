@@ -1,4 +1,8 @@
-# The Mother of all relational data structures
+# Solving Data Design Problems
+
+There are some fairly well established ways to organise data that allow flexible design and least impact when applying change to the store.
+
+## The Mother of all relational data structures
 
 This version of the Data Model includes a DataValue Table showing how data could be stored in this flexible  example of "Entity-Attribute-Value" see [Wikipedia](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model).
 
@@ -50,7 +54,7 @@ attribute "1" -- "*" datavalue;
 
 ## Things in Hierarchies
 
-Users should be able to create any __Hierarchy__ they like by using this parent sibling model 
+Users should be able to create any __Hierarchy__ they like by using this parent sibling model. In this case a **Thing** is the subject of the heirarchy. In this way the **Thing** could be the subject of multiple heirarchies.
 
 ![Data structure](https://g.gravizo.com/svg?
 @startuml;
@@ -73,7 +77,7 @@ Table(siblingprev, "SiblingPrev") {;
    primary_key(hierarchy) GUID;
    primary_key(previous) GUID;
 };
-Table(hierarchy, "Container") {;
+Table(hierarchy, "Heirarchy") {;
    primary_key(id) GUID;
    foreign_key(thing) GUID;
 };
@@ -114,6 +118,8 @@ hierarchy .l. siblingprev;
 | 5     | etc. |
 
 ## Access to Things
+
+Security is difficult to manage in multiple Heirarchies. The best way to think of it is that the Access is granted specifically to the Thing itself. If Access needs to be managed within a certain heirarchy then the Access is applied to that point in the Heirarchy. This Access would not change Access to the Thing only navigation through that Heirarchy. If, for convienience, Applying Access control to groups of Things is required then a master Heirarchy (much like a file system) should be maintained do perform this task. This wouldn't necessarily affect progress through alternate heirarchies but would result in denying access to a Thing.
 
 ![Data structure](https://g.gravizo.com/svg?
 @startuml;
