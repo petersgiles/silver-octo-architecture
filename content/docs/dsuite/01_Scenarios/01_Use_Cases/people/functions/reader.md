@@ -13,15 +13,13 @@ A Reader can consume prepared briefs and perform rudimentary tasks in response t
 - Respond
     - Make Comments (Add to Discussion)
     - Choose a Recommendation Response (if they are granted the delegation to do so)
+    
+    
 
-
-```plantuml
-@startuml
-
-ACT_READER .. (Read) : Uses
-ACT_READER .. (Respond)  : Uses
-ACT_READER .. (View\nNotifications)  : Uses
-
-@enduml
-
-```
+![Data structure](https://g.gravizo.com/svg?
+@startuml;
+ACT_READER .. (Read) : Uses;
+ACT_READER .. (Respond)  : Uses;
+ACT_READER .. (View\nNotifications)  : Uses;
+@enduml;
+)
