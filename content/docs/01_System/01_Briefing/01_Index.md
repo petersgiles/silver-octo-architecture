@@ -2,7 +2,7 @@
 
 ## Briefs, Commitments and Electorates are containers
 
-They can hold multiple documents, links, converations and other supporting information that constitutes a complete rendering of information exchange.
+They can hold multiple documents, links, conversations and other supporting information that constitutes a complete rendering of information exchange.
 
 ![Data structure](https://g.gravizo.com/svg?
 @startuml;
@@ -109,12 +109,12 @@ Electorate .. Commitment;
 
 ### Primary Document (Brief)
 
-  - A document managed by sharepoint 
+  - A document managed by SharePoint 
   - A document is often prepared using Microsoft Word  
 
 ### Ancillary Documents (Attachment)
 
-  - A document managed by sharepoint 
+  - A document managed by SharePoint 
   - A document is often prepared using Microsoft Word 
 
 ## SharePoint Document to Brief
@@ -127,7 +127,7 @@ Electorate .. Commitment;
 !define not_null(x) <u>x</u>;
 Table(document, "Document") {;
     primary_key(id) GUID;
-    inlineData boolean;
+    renderedDocumentUrl GUID;
 };
 Table(container, "Brief") {;
     primary_key(id) GUID;
@@ -152,77 +152,3 @@ documentcontainer "0" --> "*" document;
 document  "1" ..> "0..1" ext_key_sp;
 @enduml;
 )
-
-### Example Briefing Pack 
-
-![Data structure](https://g.gravizo.com/svg?
-@startuml;
-object "Jurisdiction" as jurisdiction;
-object "Bundle" as bundle;
-object "Pack" as pack;
-object "Folder" as folder;
-object "Brief" as briefing;
-object "Document" as brief;
-object "Attachment" as attachment;
-object "Discussion" as discussion;
-object "Status" as status;
-object "Recommended Direction" as recommed;
-object "Recommendation" as recommendation;
-object "Recommendation Options" as options;
-object "Recommendation Response" as action;
-jurisdiction "1" -> "*" bundle ;
-bundle "1" -> "*" pack ;
-pack "1" --> "*" folder ;
-folder "1" -> "0..*" folder ;
-folder "1" -> "0..*" briefing  ;
-briefing "1" --> "1" brief ;
-briefing "1" --> "0..3" discussion ;
-briefing "1" --> "0..*" attachment ;
-briefing "1" --> "0..*" status ;
-briefing "1" --> "0..*" recommed ;
-recommed "1" --> "1..*" options ;
-recommed "1" --> "0..1" recommendation ;
-recommed "1" --> "0..*" action ;
-options "1" --> "0..*" action ;
-note "See Discussion Service" as N1;
-discussion .. N1;
-@enduml;
-)
-
-### Example Commitment Pack
-
-![Data structure](https://g.gravizo.com/svg?
-@startuml;
-!define Lookup(name,desc) object "desc" as name;
-!define CoreEntity(name,desc) object "desc" as name;
-CoreEntity(jurisdiction, "Jurisdiction");
-CoreEntity(bundle, "Bundle");
-CoreEntity(pack, "Pack");
-CoreEntity(commitment, "Commitment");
-CoreEntity(comments, "Discussions");
-CoreEntity(contact, "Contact");
-CoreEntity(electorate, "Electorate");
-CoreEntity(costing, "Costing");
-Lookup(mappoint, "MapPoint");
-Lookup(package, "Package");
-Lookup(portfolio, "Portfolio");
-Lookup(theme, "Theme");
-Lookup(politicalparty, "Political Party");
-jurisdiction "1" -> "*" bundle ;
-bundle "1" -> "*" pack : "Political Party" ;
-pack "0" --> "*" commitment;
-commitment "0" -> "*" commitment;
-commitment "0" --> "*" comments;
-commitment "0" --> "*" contact;
-commitment "0" --> "*" electorate;
-commitment "0" --> "*" costing;
-commitment "0" --> "*" mappoint;
-commitment "0" --> "*" package;
-commitment "1" --> "*" portfolio;
-commitment "0" --> "*" theme;
-commitment "1" --> "1" politicalparty;
-note "See Discussion Service" as N1;
-comments .. N1;
-@enduml;
-)
-
